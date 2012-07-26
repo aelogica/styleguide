@@ -16,3 +16,12 @@ tmp
 .yardoc
 _yardoc
 doc/
+
+Gemfile.lock
+test/dest
+*.swp
+*.swo
+*~
+_site/
+.DS_Store
+bbin/
