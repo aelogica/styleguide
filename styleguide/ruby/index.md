@@ -1,6 +1,23 @@
 ---
 layout: default
 ---
+
+## Table of Contents
+
+* [Source Code Layout](#source-code-layout)
+* [Syntax](#syntax)
+* [Naming](#naming)
+* [Comments](#comments)
+* [Annotations](#annotations)
+* [Classes](#classes)
+* [Exceptions](#exceptions)
+* [Collections](#collections)
+* [Strings](#strings)
+* [Regular Expressions](#regular-expressions)
+* [Percent Literals](#percent-literals)
+* [Metaprogramming](#metaprogramming)
+* [Misc](#misc)
+
 # Prelude
 
 > Style is what separates the good from the great.
@@ -57,22 +74,6 @@ mind for now.
 
 You can generate a PDF or an HTML copy of this guide using
 [Transmuter](https://github.com/TechnoGate/transmuter).
-
-## Table of Contents
-
-* [Source Code Layout](#source-code-layout)
-* [Syntax](#syntax)
-* [Naming](#naming)
-* [Comments](#comments)
-* [Annotations](#annotations)
-* [Classes](#classes)
-* [Exceptions](#exceptions)
-* [Collections](#collections)
-* [Strings](#strings)
-* [Regular Expressions](#regular-expressions)
-* [Percent Literals](#percent-literals)
-* [Metaprogramming](#metaprogramming)
-* [Misc](#misc)
 
 ## Source Code Layout
 

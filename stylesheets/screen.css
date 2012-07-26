@@ -66,3 +66,104 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
+
+/* line 1, stylesheets/sass/globals/html_defaults.sass */
+body {
+  font: 14px/20px "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: white;
+  color: #444444;
+  line-height: 1.6;
+}
+
+/* line 7, stylesheets/sass/globals/html_defaults.sass */
+a {
+  color: #557799;
+  text-decoration: none;
+}
+/* line 11, stylesheets/sass/globals/html_defaults.sass */
+a:hover {
+  color: #cccccc;
+}
+
+/* line 1, stylesheets/sass/shared/layout.sass */
+#ae {
+  position: fixed;
+  top: 0;
+  margin: 0 0 0 -120px;
+}
+
+/* line 6, stylesheets/sass/shared/layout.sass */
+#container {
+  width: 940px;
+  margin: 0 auto;
+  padding: 30px 0 0 0;
+  position: relative;
+  *zoom: 1;
+}
+/* line 38, ../../../.rvm/gems/ruby-1.9.3-p125@aelogica-styleguide/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+#container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 1, stylesheets/sass/shared/header.sass */
+header {
+  float: left;
+  width: 45%;
+}
+
+/* line 1, stylesheets/sass/shared/nav.sass */
+nav {
+  position: relative;
+  float: right;
+  width: 45%;
+}
+/* line 6, stylesheets/sass/shared/nav.sass */
+nav ul {
+  *zoom: 1;
+}
+/* line 38, ../../../.rvm/gems/ruby-1.9.3-p125@aelogica-styleguide/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+nav ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 8, stylesheets/sass/shared/nav.sass */
+nav ul li {
+  float: left;
+}
+/* line 11, stylesheets/sass/shared/nav.sass */
+nav ul li .menu-item {
+  display: block;
+  padding: 10px;
+  color: #999999;
+  font-weight: bold;
+}
+/* line 18, stylesheets/sass/shared/nav.sass */
+nav ul li .menu-item:hover {
+  color: #444444;
+}
+/* line 21, stylesheets/sass/shared/nav.sass */
+nav ul li .menu-item.current {
+  background: #eeeeee;
+  color: #444444;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 2, stylesheets/sass/components/markdown.sass */
+.markdown h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
+  margin: 10px 0;
+}
+
+/* line 1, stylesheets/sass/sections/main_content.sass */
+#main-content {
+  clear: both;
+}
