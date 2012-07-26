@@ -11,22 +11,31 @@
       <link href="{{ site.url }}stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
   %body
     %section#container
+      #ae
+        %a{:href => "/", :title => "aelogica"}
+          %img{:src => "/images/ae.png", :alt => "aelogica logo", :title => "aelogica logo"}/
+
       %header
-        %h1 AELOGICA Style Guide
+        #logo
+          %a{:href => "http://aelogica.com"}
+            %img{:alt => "creative mobile & web development", :title => "creative mobile & web development", :src => "/images/cwmd.png"}/
+
       %nav{:role => "navigation"}
         %ul
           %li
-            %a{:href => "{{ site.url }}/styleguide"} Overview
+            %a{:class => "menu-item current", :href => "{{ site.url }}/styleguide"} Overview
           %li
-            %a{:href => "{{ site.url }}/styleguide/css"} Styling (CSS)
+            %a{:class => "menu-item", :href => "{{ site.url }}/styleguide/css"} Styling (CSS)
           %li
-            %a{:href => "{{ site.url }}/styleguide/html"} Markup (HTML)
+            %a{:class => "menu-item", :href => "{{ site.url }}/styleguide/html"} Markup (HTML)
           %li
-            %a{:href => "{{ site.url }}/styleguide/js"} Behavior (JS)
+            %a{:class => "menu-item", :href => "{{ site.url }}/styleguide/js"} Behavior (JS)
           %li
-            %a{:href => "{{ site.url }}/styleguide/ruby"} Ruby
+            %a{:class => "menu-item", :href => "{{ site.url }}/styleguide/ruby"} Ruby
+
       %section#main-content
         {{ content }}
+
       %footer
         %p
           Hosted on Github Pages

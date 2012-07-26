@@ -1,0 +1,7 @@
+/* line 2, stylesheets/sass/components/markdown.sass */
+.markdown h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
+  margin: 10px 0;
+}

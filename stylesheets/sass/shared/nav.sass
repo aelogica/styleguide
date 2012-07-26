@@ -1,0 +1,25 @@
+nav
+  position: relative
+  float: right
+  width: 45%
+
+  ul
+    @include pie-clearfix
+    li
+      float: left
+
+      .menu-item
+        display: block
+        padding: 10px
+        color: #999
+        font:
+          weight: bold
+
+        &:hover
+          color: #444
+
+        &.current
+          background: #eee
+          color: #444
+          @include border-radius(5px)
+
