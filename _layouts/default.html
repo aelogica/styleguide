@@ -1,3 +1,17 @@
+---
+menu:
+  - url: home
+    label: Overview
+  - url: css
+    label: Styling (CSS)
+  - url: html
+    label: Markup (HTML)
+  - url: js
+    label: Behavior (JS)
+  - url: ruby
+    label: Ruby
+url: home
+---
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
   <head>
@@ -27,21 +41,17 @@
       </header>
       <nav role='navigation'>
         <ul>
+          {% for element in page.menu %}
+          {% if element.url == page.url %}
           <li>
-            <a class='menu-item current' href='{{ site.url }}/styleguide'>Overview</a>
+            <a class='menu-item current' href='{{ site.url }}/styleguide/{{ element.url }}'>{{ element.label }}</a>
           </li>
+          {% else %}
           <li>
-            <a class='menu-item' href='{{ site.url }}/styleguide/css'>Styling (CSS)</a>
+            <a class='menu-item' href='{{ site.url }}/styleguide/{{ element.url }}'>{{ element.label }}</a>
           </li>
-          <li>
-            <a class='menu-item' href='{{ site.url }}/styleguide/html'>Markup (HTML)</a>
-          </li>
-          <li>
-            <a class='menu-item' href='{{ site.url }}/styleguide/js'>Behavior (JS)</a>
-          </li>
-          <li>
-            <a class='menu-item' href='{{ site.url }}/styleguide/ruby'>Ruby</a>
-          </li>
+          {% endif %}
+          {% endfor %}
         </ul>
       </nav>
       <section class='markdown' id='main-content'>
