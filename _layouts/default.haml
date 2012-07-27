@@ -1,3 +1,19 @@
+:plain
+  ---
+  menu:
+    - url: home
+      label: Overview
+    - url: css
+      label: Styling (CSS)
+    - url: html
+      label: Markup (HTML)
+    - url: js
+      label: Behavior (JS)
+    - url: ruby
+      label: Ruby
+  url: home
+  ---
+
 !!!
 %html
   %head
@@ -22,18 +38,17 @@
 
       %nav{:role => "navigation"}
         %ul
+          {% for element in page.menu %}
+          {% if element.url == page.url %}
           %li
-            %a{:class => "menu-item current", :href => "{{ site.url }}/styleguide"} Overview
+            %a{:class => "menu-item current", :href => "{{ site.url }}/styleguide/{{ element.url }}"} {{ element.label }}
+          {% else %}
           %li
-            %a{:class => "menu-item", :href => "{{ site.url }}/styleguide/css"} Styling (CSS)
-          %li
-            %a{:class => "menu-item", :href => "{{ site.url }}/styleguide/html"} Markup (HTML)
-          %li
-            %a{:class => "menu-item", :href => "{{ site.url }}/styleguide/js"} Behavior (JS)
-          %li
-            %a{:class => "menu-item", :href => "{{ site.url }}/styleguide/ruby"} Ruby
+            %a{:class => "menu-item", :href => "{{ site.url }}/styleguide/{{ element.url }}"} {{ element.label }}
+          {% endif %}
+          {% endfor %}
 
-      %section#main-content
+      %section#main-content.markdown
         {{ content }}
 
       %footer

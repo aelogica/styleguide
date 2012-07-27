@@ -1,13 +1,11 @@
 nav
+  @include grid(8)
   position: relative
-  float: right
-  width: 45%
 
   ul
     @include pie-clearfix
+    @include inline-block-list
     li
-      float: left
-
       .menu-item
         display: block
         padding: 10px
