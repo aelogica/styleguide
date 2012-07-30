@@ -1,17 +1,14 @@
 :plain
   ---
   menu:
-    - url: home
-      label: Overview
-    - url: css
+    - name: css
       label: Styling (CSS)
-    - url: html
+    - name: html
       label: Markup (HTML)
-    - url: js
+    - name: js
       label: Behavior (JS)
-    - url: ruby
+    - name: ruby
       label: Ruby
-  url: home
   ---
 
 !!!
@@ -27,9 +24,6 @@
       <link href="{{ site.url }}stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
   %body
     %section#container
-      #ae
-        %a{:href => "/", :title => "aelogica"}
-          %img{:src => "/images/ae.png", :alt => "aelogica logo", :title => "aelogica logo"}/
 
       %header
         #logo
@@ -39,17 +33,31 @@
       %nav{:role => "navigation"}
         %ul
           {% for element in page.menu %}
-          {% if element.url == page.url %}
+          {% if element.name == page.name %}
           %li
-            %a{:class => "menu-item current", :href => "{{ site.url }}/styleguide/{{ element.url }}"} {{ element.label }}
+            %a{:class => "menu-item current", :href => "{{ site.url }}/styleguide/{{ element.name }}"} {{ element.label }}
           {% else %}
           %li
-            %a{:class => "menu-item", :href => "{{ site.url }}/styleguide/{{ element.url }}"} {{ element.label }}
+            %a{:class => "menu-item", :href => "{{ site.url }}/styleguide/{{ element.name }}"} {{ element.label }}
           {% endif %}
           {% endfor %}
 
-      %section#main-content.markdown
-        {{ content }}
+      %section#main-content
+        .sidebar
+          %a{:href => "/", :title => "aelogica"}
+            %img{:src => "/images/ae.png", :alt => "aelogica logo", :title => "aelogica logo"}/
+
+          {% if page.toc %}
+          %section.table-of-contents
+            %ul
+              {% for element in page.toc %}
+              %li
+                %a.chapter{href: '#{{ element.bookmark }}'} {{ element.bookmark | replace: '_', ' ' | capitalize }}
+              {% endfor %}
+          {% endif %}
+
+        .markdown
+          {{ content }}
 
       %footer
         %p

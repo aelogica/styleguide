@@ -1,5 +1,6 @@
 ---
 layout: default
+name: home
 ---
 ## Styleguide Index
 
