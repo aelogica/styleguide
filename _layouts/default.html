@@ -1,16 +1,13 @@
 ---
 menu:
-  - url: home
-    label: Overview
-  - url: css
+  - name: css
     label: Styling (CSS)
-  - url: html
+  - name: html
     label: Markup (HTML)
-  - url: js
+  - name: js
     label: Behavior (JS)
-  - url: ruby
+  - name: ruby
     label: Ruby
-url: home
 ---
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -27,11 +24,6 @@ url: home
   </head>
   <body>
     <section id='container'>
-      <div id='ae'>
-        <a href='/' title='aelogica'>
-          <img alt='aelogica logo' src='/images/ae.png' title='aelogica logo' />
-        </a>
-      </div>
       <header>
         <div id='logo'>
           <a href='http://aelogica.com'>
@@ -42,20 +34,38 @@ url: home
       <nav role='navigation'>
         <ul>
           {% for element in page.menu %}
-          {% if element.url == page.url %}
+          {% if element.name == page.name %}
           <li>
-            <a class='menu-item current' href='{{ site.url }}/styleguide/{{ element.url }}'>{{ element.label }}</a>
+            <a class='menu-item current' href='{{ site.url }}/styleguide/{{ element.name }}'>{{ element.label }}</a>
           </li>
           {% else %}
           <li>
-            <a class='menu-item' href='{{ site.url }}/styleguide/{{ element.url }}'>{{ element.label }}</a>
+            <a class='menu-item' href='{{ site.url }}/styleguide/{{ element.name }}'>{{ element.label }}</a>
           </li>
           {% endif %}
           {% endfor %}
         </ul>
       </nav>
-      <section class='markdown' id='main-content'>
-        {{ content }}
+      <section id='main-content'>
+        <div class='sidebar'>
+          <a href='/' title='aelogica'>
+            <img alt='aelogica logo' src='/images/ae.png' title='aelogica logo' />
+          </a>
+          {% if page.toc %}
+          <section class='table-of-contents'>
+            <ul>
+              {% for element in page.toc %}
+              <li>
+                <a class='chapter' href='#{{ element.bookmark }}'>{{ element.bookmark | replace: '_', ' ' | capitalize }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </section>
+          {% endif %}
+        </div>
+        <div class='markdown'>
+          {{ content }}
+        </div>
       </section>
       <footer>
         <p>
