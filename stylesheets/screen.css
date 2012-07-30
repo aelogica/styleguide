@@ -189,14 +189,14 @@ nav ul li .menu-item.current {
 /* line 14, stylesheets/sass/components/_markdown.sass */
 .markdown h2 {
   font-size: 24px;
-  border-bottom: 1px dotted black;
+  border-bottom: 1px solid #efefef;
 }
-/* line 20, stylesheets/sass/components/_markdown.sass */
+/* line 19, stylesheets/sass/components/_markdown.sass */
 .markdown ul {
   list-style-type: disc;
   list-style-position: inside;
 }
-/* line 25, stylesheets/sass/components/_markdown.sass */
+/* line 24, stylesheets/sass/components/_markdown.sass */
 .markdown p {
   margin: 10px 0;
 }
