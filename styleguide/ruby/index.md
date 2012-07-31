@@ -1,78 +1,25 @@
 ---
 layout: default
+name: ruby
+toc:
+  - bookmark: source_code_layout
+  - bookmark: syntax
+  - bookmark: naming
+  - bookmark: comments
+  - bookmark: annotations
+  - bookmark: classes
+  - bookmark: exceptions
+  - bookmark: collections
+  - bookmark: strings
+  - bookmark: regular_expressions
+  - bookmark: percent_literals
+  - bookmark: metaprogramming
+  - bookmark: misc
 ---
-# Prelude
 
-> Style is what separates the good from the great.
-> -- Bozhidar Batsov
+## Introduction
 
-One thing has always bothered me as Ruby developer - Python developers
-have a great programming style reference
-([PEP-8](http://www.python.org/dev/peps/pep-0008/)) and we never got
-an official guide, documenting Ruby coding style and best
-practices. And I do believe that style matters. I also believe that
-such fine fellows, like us Ruby developers, should be quite capable to
-produce this coveted document.
-
-This guide started its life as our internal company Ruby coding guidelines
-(written by yours truly). At some point I decided that the work I was
-doing might be interesting to members of the Ruby community in general
-and that the world had little need for another internal company
-guideline. But the world could certainly benefit from a
-community-driven and community-sanctioned set of practices, idioms and
-style prescriptions for Ruby programming.
-
-Since the inception of the guide I've received a lot of feedback from
-members of the exceptional Ruby community around the world. Thanks for
-all the suggestions and the support! Together we can make a resource
-beneficial to each and every Ruby developer out there.
-
-By the way, if you're into Rails you might want to check out the
-complementary
-[Ruby on Rails 3 Style Guide](https://github.com/bbatsov/rails-style-guide).
-
-# The Ruby Style Guide
-
-This Ruby style guide recommends best practices so that real-world Ruby
-programmers can write code that can be maintained by other real-world Ruby
-programmers. A style guide that reflects real-world usage gets used, and a
-style guide that holds to an ideal that has been rejected by the people it is
-supposed to help risks not getting used at all &ndash; no matter how good it is.
-
-The guide is separated into several sections of related rules. I've
-tried to add the rationale behind the rules (if it's omitted I've
-assumed that is pretty obvious).
-
-I didn't come up with all the rules out of nowhere - they are mostly
-based on my extensive career as a professional software engineer,
-feedback and suggestions from members of the Ruby community and
-various highly regarded Ruby programming resources, such as
-["Programming Ruby 1.9"](http://pragprog.com/book/ruby3/programming-ruby-1-9)
-and ["The Ruby Programming Language"](http://www.amazon.com/Ruby-Programming-Language-David-Flanagan/dp/0596516177).
-
-The guide is still a work in progress - some rules are lacking
-examples, some rules don't have examples that illustrate them clearly
-enough. In due time these issues will be addressed - just keep them in
-mind for now.
-
-You can generate a PDF or an HTML copy of this guide using
-[Transmuter](https://github.com/TechnoGate/transmuter).
-
-## Table of Contents
-
-* [Source Code Layout](#source-code-layout)
-* [Syntax](#syntax)
-* [Naming](#naming)
-* [Comments](#comments)
-* [Annotations](#annotations)
-* [Classes](#classes)
-* [Exceptions](#exceptions)
-* [Collections](#collections)
-* [Strings](#strings)
-* [Regular Expressions](#regular-expressions)
-* [Percent Literals](#percent-literals)
-* [Metaprogramming](#metaprogramming)
-* [Misc](#misc)
+This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby-style-guide/). We added a couple more examples and fixed some typos, but most of this came from there.
 
 ## Source Code Layout
 
@@ -84,7 +31,6 @@ You can generate a PDF or an HTML copy of this guide using
 * Use `UTF-8` as the source file encoding.
 * Use two **spaces** per indentation level.
 
-
         # good
         def some_method
           do_something
@@ -94,7 +40,6 @@ You can generate a PDF or an HTML copy of this guide using
         def some_method
             do_something
         end
-
 
 * Use Unix-style line endings. (*BSD/Solaris/Linux/OSX users are covered by default,
   Windows users have to be extra careful.)
@@ -825,7 +770,7 @@ at all.
 * When designing class hierarchies make sure that they conform to the
   [Liskov Substitution Principle](http://en.wikipedia.org/wiki/Liskov_substitution_principle).
 * Try to make your classes as
-  [SOLID](http://en.wikipedia.org/wiki/SOLID_(object-oriented_design\))
+  [SOLID][1]
   as possible.
 * Always supply a proper `to_s` method for classes that represent
   domain objects.
@@ -1411,9 +1356,7 @@ syntax.
 
 * Use `%w` freely.
 
-
         STATES = %w(draft open closed)
-
 
 * Use `%()` for single-line strings which require both interpolation
   and embedded double-quotes. For multi-line strings, prefer heredocs.
@@ -1421,14 +1364,19 @@ syntax.
 
         # bad (no interpolation needed)
         %(<div class="text">Some text</div>)
-        # should be '<div class="text">Some text</div>'
+
+        # should be
+        '<div class="text">Some text</div>'
 
         # bad (no double-quotes)
         %(This is #{quality} style)
-        # should be "This is #{quality} style"
+
+        # should be
+        "This is #{quality} style"
 
         # bad (multiple lines)
         %(<div>\n<span class="big">#{exclamation}</span>\n</div>)
+
         # should be a heredoc.
 
         # good (requires interpolation, has quotes, single line)
@@ -1566,3 +1514,4 @@ your friends and colleagues. Every comment, suggestion or opinion we
 get makes the guide just a little bit better. And we want to have the
 best possible guide, don't we?
 
+[1]: http://en.wikipedia.org/wiki/SOLID_(object-oriented_design\)

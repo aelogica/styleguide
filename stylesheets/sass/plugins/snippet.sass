@@ -1,0 +1,196 @@
+@import 960/grid
+@import compass/css3
+
+.sh_rand01
+  background: none
+  padding: 0
+  margin: 0
+  border: 0 none
+  .sh_sourceCode
+    background-color: #fafafa
+    color: #121b28
+    font-weight: normal
+    font-style: normal
+    .sh_keyword
+      color: #0a7f6d
+      font-weight: bold
+      font-style: normal
+    .sh_type
+      color: #c42638
+      font-weight: bold
+      font-style: normal
+    .sh_string, .sh_regexp
+      color: #2b83ba
+      font-weight: normal
+      font-style: normal
+    .sh_specialchar
+      color: #a764cb
+      font-weight: normal
+      font-style: normal
+    .sh_comment
+      color: #ababab
+      font-weight: normal
+      font-style: italic
+    .sh_number
+      color: #0da344
+      font-weight: normal
+      font-style: normal
+    .sh_preproc
+      color: #620ac6
+      font-weight: normal
+      font-style: normal
+    .sh_symbol
+      color: #0000de
+      font-weight: normal
+      font-style: normal
+    .sh_function
+      color: #000
+      font-weight: bold
+      font-style: normal
+    .sh_cbracket
+      color: #0000de
+      font-weight: normal
+      font-style: normal
+    .sh_url
+      color: #2b83ba
+      font-weight: normal
+      font-style: normal
+    .sh_date, .sh_time, .sh_file
+      color: #0a7f6d
+      font-weight: bold
+      font-style: normal
+    .sh_ip, .sh_name
+      color: #2b83ba
+      font-weight: normal
+      font-style: normal
+    .sh_variable
+      color: #e12f76
+      font-weight: bold
+      font-style: normal
+    .sh_oldfile
+      color: #a764cb
+      font-weight: normal
+      font-style: normal
+    .sh_newfile
+      color: #2b83ba
+      font-weight: normal
+      font-style: normal
+    .sh_difflines
+      color: #0a7f6d
+      font-weight: bold
+      font-style: normal
+    .sh_selector
+      color: #e12f76
+      font-weight: bold
+      font-style: normal
+    .sh_property
+      color: #0a7f6d
+      font-weight: bold
+      font-style: normal
+    .sh_value
+      color: #2b83ba
+      font-weight: normal
+      font-style: normal
+
+.snippet-wrap
+  position: relative
+
+*
+  &:first-child .snippet-wrap, html .snippet-wrap
+    display: inline-block
+
+.snippet-reveal
+  text-decoration: underline
+
+.snippet-wrap
+  .snippet-menu
+    position: absolute
+    top: 10px
+    right: 15px
+    font-size: .9em
+    z-index: 1
+    background-color: transparent
+  .snippet-hide
+    position: absolute
+    top: 10px
+    right: 15px
+    font-size: .9em
+    z-index: 1
+    background-color: transparent
+    top: auto
+    bottom: 10px
+
+*
+  &:first-child .snippet-hide, html .snippet-hide
+    bottom: 25px
+
+.snippet-wrap
+  .snippet-menu pre, .snippet-hide pre
+    background-color: transparent
+    margin: 0
+    padding: 0
+  .snippet-menu a, .snippet-hide a
+    padding: 0 5px
+    text-decoration: underline
+  pre
+    &.sh_sourceCode
+      line-height: 1.8em
+      overflow: auto
+      @include grid(9)
+      border: 1px solid #ddd
+
+    &.snippet-textonly
+      padding: 2em
+
+.snippet-reveal pre.sh_sourceCode
+  padding: .5em 1em
+  text-align: right
+
+.snippet-wrap
+  .snippet-num li
+    padding-left: 1.5em
+  .snippet-no-num
+    list-style: none
+    padding: .6em 1em
+    margin: 0
+    li
+      list-style: none
+      padding-left: 0
+  .snippet-num
+    padding: 0 1em
+    li
+      list-style: decimal-leading-zero outside none
+  .snippet-no-num li.box
+    padding: 0 6px
+    margin-left: -6px
+  .snippet-num li.box
+    border: 1px solid
+    list-style-position: inside
+    margin-left: -3em
+    padding-left: 6px
+
+*
+  &:first-child li.box, html li.box
+    margin-left: -2.4em
+
+.snippet-wrap
+  li
+    &.box-top
+      border-width: 1px 1px 0 !important
+    &.box-bot
+      border-width: 0 1px 1px !important
+    &.box-mid
+      border-width: 0 1px !important
+  .snippet-num .box-sp
+    width: 18px
+    display: inline-block
+
+*
+  &:first-child .box-sp, html .box-sp
+    width: 27px
+
+.snippet-wrap li
+  &.box
+    border: 1px solid
+  .box-sp
+    display: none
