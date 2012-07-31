@@ -770,7 +770,7 @@ at all.
 * When designing class hierarchies make sure that they conform to the
   [Liskov Substitution Principle](http://en.wikipedia.org/wiki/Liskov_substitution_principle).
 * Try to make your classes as
-  [SOLID](http://en.wikipedia.org/wiki/SOLID_(object-oriented_design\))
+  [SOLID][1]
   as possible.
 * Always supply a proper `to_s` method for classes that represent
   domain objects.
@@ -1356,9 +1356,7 @@ syntax.
 
 * Use `%w` freely.
 
-
         STATES = %w(draft open closed)
-
 
 * Use `%()` for single-line strings which require both interpolation
   and embedded double-quotes. For multi-line strings, prefer heredocs.
@@ -1366,14 +1364,19 @@ syntax.
 
         # bad (no interpolation needed)
         %(<div class="text">Some text</div>)
-        # should be '<div class="text">Some text</div>'
+
+        # should be
+        '<div class="text">Some text</div>'
 
         # bad (no double-quotes)
         %(This is #{quality} style)
-        # should be "This is #{quality} style"
+
+        # should be
+        "This is #{quality} style"
 
         # bad (multiple lines)
         %(<div>\n<span class="big">#{exclamation}</span>\n</div>)
+
         # should be a heredoc.
 
         # good (requires interpolation, has quotes, single line)
@@ -1511,3 +1514,4 @@ your friends and colleagues. Every comment, suggestion or opinion we
 get makes the guide just a little bit better. And we want to have the
 best possible guide, don't we?
 
+[1]: http://en.wikipedia.org/wiki/SOLID_(object-oriented_design\)

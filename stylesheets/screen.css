@@ -77,7 +77,7 @@ body {
 
 /* line 7, stylesheets/sass/globals/_html_defaults.sass */
 a {
-  color: #557799;
+  color: #88aacc;
   text-decoration: none;
 }
 /* line 11, stylesheets/sass/globals/_html_defaults.sass */
@@ -192,11 +192,16 @@ nav ul li .menu-item.current {
   border-bottom: 1px solid #efefef;
 }
 /* line 19, stylesheets/sass/components/_markdown.sass */
-.markdown ul {
+.markdown > ul {
   list-style-type: disc;
   list-style-position: inside;
+  margin-left: 20px;
 }
-/* line 24, stylesheets/sass/components/_markdown.sass */
+/* line 26, stylesheets/sass/components/_markdown.sass */
+.markdown > ul > li {
+  margin-bottom: 20px;
+}
+/* line 30, stylesheets/sass/components/_markdown.sass */
 .markdown p {
   margin: 10px 0;
 }
@@ -230,8 +235,8 @@ nav ul li .menu-item.current {
 }
 /* line 16, stylesheets/sass/components/_table_of_contents.sass */
 .table-of-contents li .chapter:hover {
-  background: #efefef;
-  color: black;
+  background: #88aacc;
+  color: white;
 }
 
 /* line 1, stylesheets/sass/sections/_main_content.sass */
