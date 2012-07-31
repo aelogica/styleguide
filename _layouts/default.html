@@ -16,9 +16,9 @@ menu:
     <title>AELOGICA Style Guide</title>
     <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro' rel='stylesheet' type='text/css' />
-    <link href='http://{{ site.base_url }}/{{ site.project_name }}/stylesheets/screen.css' media='screen, projection' rel='stylesheet' type='text/css' />
-    <link href='http://{{ site.base_url }}/{{ site.project_name }}/stylesheets/plugins/snippet.css' media='screen, projection' rel='stylesheet' type='text/css' />
-    <link href='http://{{ site.base_url }}/{{ site.project_name }}/stylesheets/print.css' media='print' rel='stylesheet' type='text/css' />
+    {% include_css screen %}
+    {% include_css plugins/snippet %}
+    {% include_css print %}
     <!--[if IE]>
       <link href="{{ site.url }}stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
@@ -74,8 +74,8 @@ menu:
         </p>
       </footer>
     </section>
-    <script src='http://{{ site.base_url }}/{{ site.project_name }}/javascripts/jquery-1.7.2.min.js' type='text/javascript'></script>
-    <script src='http://{{ site.base_url }}/{{ site.project_name }}/javascripts/jquery.snippet.min.js' type='text/javascript'></script>
-    <script src='http://{{ site.base_url }}/{{ site.project_name }}/javascripts/main.js' type='text/javascript'></script>
+    {% include_js jquery-1.7.2.min %}
+    {% include_js jquery.snippet.min %}
+    {% include_js main %}
   </body>
 </html>
