@@ -1,0 +1,255 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../.rvm/gems/ruby-1.9.3-p125@aelogica-styleguide/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../.rvm/gems/ruby-1.9.3-p125@aelogica-styleguide/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../.rvm/gems/ruby-1.9.3-p125@aelogica-styleguide/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../.rvm/gems/ruby-1.9.3-p125@aelogica-styleguide/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../.rvm/gems/ruby-1.9.3-p125@aelogica-styleguide/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../.rvm/gems/ruby-1.9.3-p125@aelogica-styleguide/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../.rvm/gems/ruby-1.9.3-p125@aelogica-styleguide/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../.rvm/gems/ruby-1.9.3-p125@aelogica-styleguide/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../.rvm/gems/ruby-1.9.3-p125@aelogica-styleguide/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 1, stylesheets/sass/globals/_html_defaults.sass */
+body {
+  font: 14px/20px "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: white;
+  color: #444444;
+  line-height: 1.6;
+}
+
+/* line 7, stylesheets/sass/globals/_html_defaults.sass */
+a {
+  color: #88aacc;
+  text-decoration: none;
+}
+/* line 11, stylesheets/sass/globals/_html_defaults.sass */
+a:hover {
+  color: #cccccc;
+}
+
+/* line 1, stylesheets/sass/shared/_layout.sass */
+#container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+  *zoom: 1;
+  margin-top: 50px;
+}
+/* line 38, ../../../.rvm/gems/ruby-1.9.3-p125@aelogica-styleguide/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+#container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 1, sass/shared/_header.sass */
+header {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 300px;
+  position: relative;
+  left: 160px;
+  margin-bottom: 30px;
+}
+
+/* line 1, sass/shared/_nav.sass */
+nav {
+  display: inline;
+  float: right;
+}
+/* line 4, sass/shared/_nav.sass */
+nav ul {
+  *zoom: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 38, ../../../.rvm/gems/ruby-1.9.3-p125@aelogica-styleguide/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+nav ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 49, ../../../.rvm/gems/ruby-1.9.3-p125@aelogica-styleguide/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_inline-block-list.scss */
+nav ul li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  white-space: nowrap;
+}
+/* line 8, sass/shared/_nav.sass */
+nav ul li .menu-item {
+  display: block;
+  padding: 10px;
+  color: #999999;
+  font-weight: bold;
+}
+/* line 15, sass/shared/_nav.sass */
+nav ul li .menu-item:hover {
+  color: #444444;
+}
+/* line 18, sass/shared/_nav.sass */
+nav ul li .menu-item.current {
+  background: #eeeeee;
+  color: #444444;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 1, stylesheets/sass/components/_markdown.sass */
+.markdown {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 780px;
+  position: relative;
+  left: 160px;
+}
+/* line 5, stylesheets/sass/components/_markdown.sass */
+.markdown h1, .markdown h2, .markdown h3 {
+  font-weight: bold;
+  margin: 10px 0;
+}
+/* line 10, stylesheets/sass/components/_markdown.sass */
+.markdown h1 {
+  font-size: 28px;
+}
+/* line 14, stylesheets/sass/components/_markdown.sass */
+.markdown h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #efefef;
+}
+/* line 19, stylesheets/sass/components/_markdown.sass */
+.markdown > ul {
+  list-style-type: disc;
+  list-style-position: inside;
+  margin-left: 20px;
+}
+/* line 26, stylesheets/sass/components/_markdown.sass */
+.markdown > ul > li {
+  margin-bottom: 20px;
+}
+/* line 30, stylesheets/sass/components/_markdown.sass */
+.markdown p {
+  margin: 10px 0;
+}
+
+/* line 1, stylesheets/sass/components/_sidebar.sass */
+.sidebar {
+  position: fixed;
+  top: 0;
+}
+
+/* line 1, stylesheets/sass/components/_table_of_contents.sass */
+.table-of-contents {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 140px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 30px;
+  border-top: 1px solid #efefef;
+}
+/* line 9, stylesheets/sass/components/_table_of_contents.sass */
+.table-of-contents li {
+  border-bottom: 1px solid #efefef;
+}
+/* line 12, stylesheets/sass/components/_table_of_contents.sass */
+.table-of-contents li .chapter {
+  display: block;
+  padding: 5px;
+}
+/* line 16, stylesheets/sass/components/_table_of_contents.sass */
+.table-of-contents li .chapter:hover {
+  background: #88aacc;
+  color: white;
+}
+
+/* line 1, stylesheets/sass/sections/_main_content.sass */
+#main-content {
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+  *zoom: 1;
+}
+/* line 38, ../../../.rvm/gems/ruby-1.9.3-p125@aelogica-styleguide/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+#main-content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
