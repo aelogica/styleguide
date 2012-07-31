@@ -32,24 +32,24 @@
       %header
         #logo
           %a{:href => "http://aelogica.com"}
-            %img{:alt => "creative mobile & web development", :title => "creative mobile & web development", :src => "/images/cwmd.png"}/
+            %img{:alt => "creative mobile & web development", :title => "creative mobile & web development", :src => "http://{{ site.base_url }}/{{ site.project_name }}/images/cwmd.png"}/
 
       %nav{:role => "navigation"}
         %ul
           {% for element in page.menu %}
           {% if element.name == page.name %}
           %li
-            %a{:class => "menu-item current", :href => "{{ site.url }}/styleguide/{{ element.name }}"} {{ element.label }}
+            %a{:class => "menu-item current", :href => "http://{{ site.base_url }}/{{ site.project_name }}/styleguide/{{ element.name }}"} {{ element.label }}
           {% else %}
           %li
-            %a{:class => "menu-item", :href => "{{ site.url }}/styleguide/{{ element.name }}"} {{ element.label }}
+            %a{:class => "menu-item", :href => "http://{{ site.base_url }}/{{ site.project_name }}/styleguide/{{ element.name }}"} {{ element.label }}
           {% endif %}
           {% endfor %}
 
       %section#main-content
         .sidebar
-          %a{:href => "/", :title => "aelogica"}
-            %img{:src => "/images/ae.png", :alt => "aelogica logo", :title => "aelogica logo"}/
+          %a{:href => "http://{{ site.base_url }}/{{ site.project_name }}", :title => "aelogica"}
+            %img{:src => "http://{{ site.base_url }}/{{ site.project_name }}/images/ae.png", :alt => "aelogica logo", :title => "aelogica logo"}/
 
           {% if page.toc %}
           %section.table-of-contents
@@ -67,9 +67,9 @@
         %p
           Hosted on Github Pages
 
-    %script{:src => "{{ site.url }}javascripts/jquery-1.7.2.min.js", :type => "text/javascript"}
-    %script{:src => "{{ site.url }}javascripts/jquery.snippet.min.js", :type => "text/javascript"}
-    %script{:src => "{{ site.url }}javascripts/main.js", :type => "text/javascript"}
+    %script{:src => "http://{{ site.base_url }}/{{ site.project_name }}/javascripts/jquery-1.7.2.min.js", :type => "text/javascript"}
+    %script{:src => "http://{{ site.base_url }}/{{ site.project_name }}/javascripts/jquery.snippet.min.js", :type => "text/javascript"}
+    %script{:src => "http://{{ site.base_url }}/{{ site.project_name }}/javascripts/main.js", :type => "text/javascript"}
     -#%script{:src => "/javascripts/jquery-1.7.2.min.js", :type => "text/javascript"}
     -#%script{:src => "/javascripts/jquery.snippet.min.js", :type => "text/javascript"}
     -#%script{:src => "/javascripts/main.js", :type => "text/javascript"}
