@@ -1,1 +1,1 @@
-Jekyll::ENV = (ENV['JEKYLL_ENV'] || 'development')
+Jekyll::ENV = (ENV['JEKYLL_ENV'] || 'production')

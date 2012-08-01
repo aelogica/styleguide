@@ -6,10 +6,10 @@ class ImageLink < Liquid::Tag
   end
 
   def render(context)
-    if Jekyll::ENV == 'production'
-      "#{CONFIG['base_url']}/#{CONFIG['project_name']}/#{@asset_type}/#{@image_name}"
-    else
+    if Jekyll::ENV == 'development'
       "/#{@asset_type}/#{@image_name}"
+    else
+      "#{CONFIG['base_url']}/#{CONFIG['project_name']}/#{@asset_type}/#{@image_name}"
     end
   end
 end

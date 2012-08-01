@@ -4,6 +4,8 @@ require 'haml'
 
 desc 'Pre-compile the files'
 task :pre_compile do
+  puts "ENV: #{ENV['JEKYLL_ENV']}"
+
   puts "\nCompiling HAML files..."
   file_list = Dir.glob("**/*.haml")
 
