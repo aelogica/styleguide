@@ -11,7 +11,7 @@ class AssetTag < Liquid::Tag
 
   def render(context)
     if Jekyll::ENV == 'production'
-      markup "/#{CONFIG['site']['base_url']}/#{CONFIG['site']['project_name']}/#{CONFIG[@asset_type]}/#{name_with_ext}"
+      markup "/#{CONFIG['base_url']}/#{CONFIG['project_name']}/#{@asset_type}/#{name_with_ext}"
     else
       markup "#{@path}/#{name_with_ext}"
     end
