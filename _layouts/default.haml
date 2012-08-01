@@ -30,7 +30,7 @@
       %header
         #logo
           %a{:href => "http://aelogica.com"}
-            %img{:alt => "creative mobile & web development", :title => "creative mobile & web development", :src => "http://{{ site.base_url }}/{{ site.project_name }}/images/cwmd.png"}/
+            %img{:alt => "creative mobile & web development", :title => "creative mobile & web development", :src => "{% image_link cwmd.png %}"}/
 
       %nav{:role => "navigation"}
         %ul
@@ -46,8 +46,8 @@
 
       %section#main-content
         .sidebar
-          %a{:href => "http://{{ site.base_url }}/{{ site.project_name }}", :title => "aelogica"}
-            %img{:src => "http://{{ site.base_url }}/{{ site.project_name }}/images/ae.png", :alt => "aelogica logo", :title => "aelogica logo"}/
+          %a{:href => "/", :title => "aelogica"}
+            %img{:src => "{% image_link ae.png %}", :alt => "aelogica logo", :title => "aelogica logo"}/
 
           {% if page.toc %}
           %section.table-of-contents

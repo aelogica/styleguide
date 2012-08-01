@@ -28,7 +28,7 @@ menu:
       <header>
         <div id='logo'>
           <a href='http://aelogica.com'>
-            <img alt='creative mobile &amp; web development' src='http://{{ site.base_url }}/{{ site.project_name }}/images/cwmd.png' title='creative mobile &amp; web development' />
+            <img alt='creative mobile &amp; web development' src='{% image_link cwmd.png %}' title='creative mobile &amp; web development' />
           </a>
         </div>
       </header>
@@ -49,8 +49,8 @@ menu:
       </nav>
       <section id='main-content'>
         <div class='sidebar'>
-          <a href='http://{{ site.base_url }}/{{ site.project_name }}' title='aelogica'>
-            <img alt='aelogica logo' src='http://{{ site.base_url }}/{{ site.project_name }}/images/ae.png' title='aelogica logo' />
+          <a href='/' title='aelogica'>
+            <img alt='aelogica logo' src='{% image_link ae.png %}' title='aelogica logo' />
           </a>
           {% if page.toc %}
           <section class='table-of-contents'>

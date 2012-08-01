@@ -13,7 +13,7 @@ class AssetTag < Liquid::Tag
     if Jekyll::ENV == 'production'
       markup "/#{CONFIG['base_url']}/#{CONFIG['project_name']}/#{@asset_type}/#{name_with_ext}"
     else
-      markup "#{@path}/#{name_with_ext}"
+      markup "/#{@asset_type}/#{name_with_ext}"
     end
   end
 
@@ -25,10 +25,9 @@ end
 
 class IncludeJsTag < AssetTag
   def initialize(tag_name, name, tokens)
-    @path = '/javascripts'
     @ext = 'js'
     @asset_type = 'javascripts'
-    super tag_name, name, 'js', tokens
+    super tag_name, name, @ext, tokens
   end
 
   def markup(src)
@@ -40,10 +39,9 @@ Liquid::Template.register_tag('include_js', IncludeJsTag)
 
 class IncludeCssTag < AssetTag
   def initialize(tag_name, name, tokens)
-    @path = '/stylesheets'
     @ext = 'css'
     @asset_type = 'stylesheets'
-    super tag_name, name, 'css', tokens
+    super tag_name, name, @ext, tokens
   end
 
   def markup(src)
