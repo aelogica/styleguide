@@ -23,6 +23,8 @@ end
 
 # TODO: Add an auto start for jekyll to compile
 task :deploy do
+  ENV['JEKYLL_ENV'] = 'production'
+
   Rake::Task["pre_compile"].execute
 
   puts "Adding all files in git"

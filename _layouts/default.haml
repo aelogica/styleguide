@@ -18,21 +18,19 @@
     %title AELOGICA Style Guide
     %link{:href => "http://fonts.googleapis.com/css?family=Inconsolata", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "http://fonts.googleapis.com/css?family=Anonymous+Pro", :rel => "stylesheet", :type => "text/css"}/
-    %link{:href => "http://{{ site.base_url }}/{{ site.project_name }}/stylesheets/screen.css", :media => "screen, projection", :rel => "stylesheet", :type => "text/css"}/
-    %link{:href => "http://{{ site.base_url }}/{{ site.project_name }}/stylesheets/plugins/snippet.css", :media => "screen, projection", :rel => "stylesheet", :type => "text/css"}/
-    %link{:href => "http://{{ site.base_url }}/{{ site.project_name }}/stylesheets/print.css", :media => "print", :rel => "stylesheet", :type => "text/css"}/
-    -#%link{:href => "/stylesheets/screen.css", :media => "screen, projection", :rel => "stylesheet", :type => "text/css"}/
-    -#%link{:href => "/stylesheets/plugins/snippet.css", :media => "screen, projection", :rel => "stylesheet", :type => "text/css"}/
-    -#%link{:href => "/stylesheets/print.css", :media => "print", :rel => "stylesheet", :type => "text/css"}/
+    {% include_css screen %}
+    {% include_css plugins/snippet %}
+    {% include_css print %}
     /[if IE]
-      <link href="{{ site.url }}stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+      {% include_css ie %}
+
   %body
     %section#container
 
       %header
         #logo
           %a{:href => "http://aelogica.com"}
-            %img{:alt => "creative mobile & web development", :title => "creative mobile & web development", :src => "http://{{ site.base_url }}/{{ site.project_name }}/images/cwmd.png"}/
+            %img{:alt => "creative mobile & web development", :title => "creative mobile & web development", :src => "{% image_link cwmd.png %}"}/
 
       %nav{:role => "navigation"}
         %ul
@@ -48,8 +46,8 @@
 
       %section#main-content
         .sidebar
-          %a{:href => "http://{{ site.base_url }}/{{ site.project_name }}", :title => "aelogica"}
-            %img{:src => "http://{{ site.base_url }}/{{ site.project_name }}/images/ae.png", :alt => "aelogica logo", :title => "aelogica logo"}/
+          %a{:href => "/", :title => "aelogica"}
+            %img{:src => "{% image_link ae.png %}", :alt => "aelogica logo", :title => "aelogica logo"}/
 
           {% if page.toc %}
           %section.table-of-contents
@@ -67,9 +65,6 @@
         %p
           Hosted on Github Pages
 
-    %script{:src => "http://{{ site.base_url }}/{{ site.project_name }}/javascripts/jquery-1.7.2.min.js", :type => "text/javascript"}
-    %script{:src => "http://{{ site.base_url }}/{{ site.project_name }}/javascripts/jquery.snippet.min.js", :type => "text/javascript"}
-    %script{:src => "http://{{ site.base_url }}/{{ site.project_name }}/javascripts/main.js", :type => "text/javascript"}
-    -#%script{:src => "/javascripts/jquery-1.7.2.min.js", :type => "text/javascript"}
-    -#%script{:src => "/javascripts/jquery.snippet.min.js", :type => "text/javascript"}
-    -#%script{:src => "/javascripts/main.js", :type => "text/javascript"}
+    {% include_js jquery-1.7.2.min %}
+    {% include_js jquery.snippet.min %}
+    {% include_js main %}
