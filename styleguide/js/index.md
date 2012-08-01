@@ -218,6 +218,78 @@ Methods and variables that are intended to be "private" should begin with a lead
 
       _privateMethod: ->
 
+
+## Functions
+
+_(These guidelines also apply to the methods of a class.)_
+
+When declaring a function that takes arguments, always use a single space after the closing parenthesis of the arguments list:
+
+      foo = (arg1, arg2) -> # Yes
+      foo = (arg1, arg2)-> # No
+
+
+Do not use parentheses when declaring functions that take no arguments:
+
+      bar = -> # Yes
+      bar = () -> # No
+
+
+In cases where method calls are being chained and the code does not fit on a single line, each call should be placed on a separate line and indented by one level (i.e., two spaces), with a leading `.`.
+
+      [1..3]
+        .map((x) -> x * x)
+        .concat([10..12])
+        .filter((x) -> x < 11)
+        .reduce((x, y) -> x + y)
+
+
+When calling functions, choose to omit or include parentheses in such a way that optimizes for readability. Keeping in mind that "readability" can be subjective, the following examples demonstrate cases where parentheses have been omitted or included in a manner that the community deems to be optimal:
+
+      baz 12
+
+      brush.ellipse x: 10, y: 20 # Braces can also be omitted or included for readability
+
+      foo(4).bar(8)
+
+      obj.value(10, 20) / obj.value(20, 10)
+
+      print inspect value
+
+      new Tag(new Value(a, b), new Arg(c))
+
+
+You will sometimes see parentheses used to group functions (instead of being used to group function parameters). Examples of using this style (hereafter referred to as the "function grouping style"):
+
+      ($ '#selektor').addClass 'klass'
+
+      (foo 4).bar 8
+
+
+This is in contrast to:
+
+      $('#selektor').addClass 'klass'
+
+      foo(4).bar 8
+
+
+In cases where method calls are being chained, some adopters of this style prefer to use function grouping for the initial call only:
+
+      ($ '#selektor').addClass('klass').hide() # Initial call only
+      (($ '#selektor').addClass 'klass').hide() # All calls
+
+
+The function grouping style is not recommended. However, **if the function grouping style is adopted for a particular project, be consistent with its usage.**
+
+## Strings
+
+Use string interpolation instead of string concatenation:
+
+      "this is an #{adjective} string" # Yes
+      "this is an " + adjective + " string" # No
+
+Prefer single quoted strings (`''`) instead of double quoted (`""`) strings, unless features like string interpolation are being used for the given string.
+
 [coffeescript]: http://jashkenas.github.com/coffee-script/
 [coffeescript-issue-425]: https://github.com/jashkenas/coffee-script/issues/425
 [camel-case-variations]: http://en.wikipedia.org/wiki/CamelCase#Variations_and_synonyms
