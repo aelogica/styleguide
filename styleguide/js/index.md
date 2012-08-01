@@ -5,7 +5,7 @@ toc:
   - bookmark: overview
   - bookmark: code_layout
   - bookmark: module_imports
-  - bookmark: whitespace_in_expressions
+  - bookmark: whitespace_in_expressions_and_statements
   - bookmark: comments
   - bookmark: naming_conventions
   - bookmark: functions
@@ -31,13 +31,13 @@ Most, if not all, of this page was taken from [polarmobile's Coffeescript Styleg
 *   Don't ever use `$.get` or `$.post`. Instead use `$.ajax` and provide both a success handler **and** an error handler.
 *   Use `$.fn.on` instead of `$.fn.bind`, `$.fn.delegate` and `$.fn.live`.
 
-## Documentation
+<!-- ## Documentation
 
 Use [TomDoc][4] to the best of your ability. Since we do a lot of DOM caching and such, I don't think it's plausable to strictly keep to it (and document every single method/property).
 
 ## Selectors
 
-Try to prefix all javascript-based selectors with `js-`. This is taken from [slightly obtrusive javascript][5]. The idea is that you should be able to tell a presentational class from a functional class. Most of the codebase doesn't do this, let's try and move toward it.
+Try to prefix all javascript-based selectors with `js-`. This is taken from [slightly obtrusive javascript][5]. The idea is that you should be able to tell a presentational class from a functional class. Most of the codebase doesn't do this, let's try and move toward it. -->
 
  [1]: https://github.com/jashkenas
  [2]: http://jashkenas.github.com/coffee-script/
@@ -48,7 +48,7 @@ Try to prefix all javascript-based selectors with `js-`. This is taken from [sli
 
 # CoffeeScript Style Guide
 
-Since new javascript should be written in coffeescript, we will proceed with the best-practices and coding conventions for the [CoffeeScript][coffeescript] programming language.
+Since new javascript should be written in coffeescript, we will immediately proceed with the best practices and coding conventions for the [CoffeeScript][coffeescript] programming language.
 
 <!-- ## Table of Contents
 
@@ -117,27 +117,106 @@ These statements should be grouped in the following order:
 
 Avoid extraneous whitespace in the following situations:
 
-- Immediately inside parentheses, brackets or braces
+* Immediately inside parentheses, brackets or braces
 
       ($ 'body') # Yes
       ( $ 'body' ) # No
 
-- Immediately before a comma
+* Immediately before a comma
 
-    console.log x, y # Yes
-    console.log x , y # No
+      console.log x, y # Yes
+      console.log x , y # No
 
 Additional recommendations:
 
 - Always surround these binary operators with a **single space** on either side
-
+  
   - assignment: `=`
-
+  
     - _Note that this also applies when indicating default parameter value(s) in a function declaration_
 
-        test: (param = null) -> # Yes
-        test: (param=null) -> # No
+          test: (param = null) -> # Yes
+          test: (param=null) -> # No
 
+    - augmented assignment: `+=`, `-=`, etc.
+    - comparisons: `==`, `<`, `>`, `<=`, `>=`, `unless`, etc.
+    - arithmetic operators: `+`, `-`, `*`, `/`, etc.
+
+    - _(Do not use more than one space around these operators)_
+
+          # Yes
+          x = 1
+          y = 1
+          fooBar = 3
+
+          # No
+          x      = 1
+          y      = 1
+          fooBar = 3
+
+
+## Comments
+
+If modifying code that is described by an existing comment, update the comment such that it accurately reflects the new code. (Ideally, improve the code to obviate the need for the comment, and delete the comment entirely.)
+
+The first word of the comment should be capitalized, unless the first word is an identifier that begins with a lower-case letter.
+
+If a comment is short, the period at the end can be omitted.
+
+### Block Comments
+
+Block comments apply to the block of code that follows them.
+
+Each line of a block comment starts with a `#` and a single space, and should be indented at the same level of the code that it describes.
+
+Paragraphs inside of block comments are separated by a line containing a single `#`.
+
+      # This is a block comment. Note that if this were a real block
+      # comment, we would actually be describing the proceeding code.
+      #
+      # This is the second paragraph of the same block comment. Note
+      # that this paragraph was separated from the previous paragraph
+      # by a line containing a single comment character.
+
+      init()
+      start()
+      stop()
+
+### Inline Comments
+
+Inline comments are placed on the line immediately above the statement that they are describing. If the inline comment is sufficiently short, it can be placed on the same line as the statement (separated by a single space from the end of the statement).
+
+All inline comments should start with a `#` and a single space.
+
+The use of inline comments should be limited, because their existence is typically a sign of a code smell.
+
+Do not use inline comments when they state the obvious:
+
+      # No
+      x = x + 1 # Increment x
+
+
+However, inline comments can be useful in certain scenarios:
+
+      # Yes
+      x = x + 1 # Compensate for border
+
+
+## Naming Conventions
+
+Use `camelCase` (with a leading lowercase character) to name all variables, methods, and object properties.
+
+Use `CamelCase` (with a leading uppercase character) to name all classes. _(This style is also commonly referred to as `PascalCase`, `CamelCaps`, or `CapWords`, among [other alternatives][camel-case-variations].)_
+
+_(The **official** CoffeeScript convention is camelcase, because this simplifies interoperability with JavaScript. For more on this decision, see [here][coffeescript-issue-425].)_
+
+For constants, use all uppercase with underscores:
+
+      CONSTANT_LIKE_THIS
+
+Methods and variables that are intended to be "private" should begin with a leading underscore:
+
+      _privateMethod: ->
 
 [coffeescript]: http://jashkenas.github.com/coffee-script/
 [coffeescript-issue-425]: https://github.com/jashkenas/coffee-script/issues/425
