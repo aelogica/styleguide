@@ -60,7 +60,7 @@
             <ul>
               
               <li>
-                <a class='chapter' href='#overview'>Overview</a>
+                <a class='chapter' href='#introduction'>Introduction</a>
               </li>
               
               <li>
@@ -120,51 +120,401 @@
           
         </div>
         <div class='markdown'>
-          <p>Most, if not all, the content in this part was taken from <a href='https://github.com/styleguide/javascript'>Github Styleguide</a>. Changes were made to fit our work environment.</p>
+          <h2 id='intoduction'>Intoduction</h2>
 
-<h1 id='javascript_styleguide'>JavaScript Styleguide</h1>
+<p>Most, if not all, of this page was taken from <a href='https://github.com/polarmobile/coffeescript-style-guide'>polarmobile&#8217;s Coffeescript Styleguide</a>. The idea is to make this document evolve over time as we follow this internally.</p>
 
-<p>If you&#8217;re visiting from the internet, feel free to learn from our style. This is a guide we use for our own apps internally at GitHub. We encourage you to setup one that works for your own team.</p>
-
-<h2 id='coding_style'>Coding Style</h2>
-
-<h3 id='coffeescript'>CoffeeScript</h3>
+<p>The guide can be summarized in two steps:</p>
 
 <ul>
-<li>Write new JS in CoffeeScript.</li>
-
-<li>Use soft-tabs with a two space indent.</li>
-
-<li>Always use camelCase, never underscores.</li>
-
-<li>Use implicit parentheses when possible.</li>
+<li>Avoid adding new <code>.js</code> files. Instead, write new JS in CoffeeScript.</li>
 
 <li>Follow <a href='https://github.com/jashkenas'>@jashkenas</a>&#8217;s style. See the <a href='http://jashkenas.github.com/coffee-script/'>documentation</a> for good examples.</li>
-
-<li>Any top level objects should be namespaced under the <code>GitHub</code> namespace.</li>
-
-<li>Don&#8217;t ever use <code>$.get</code> or <code>$.post</code>. Instead use <code>$.ajax</code> and provide both a success handler <strong>and</strong> an error handler.</li>
-
-<li>Use <code>$.fn.on</code> instead of <code>$.fn.bind</code>, <code>$.fn.delegate</code> and <code>$.fn.live</code>.</li>
 </ul>
 
-<h3 id='existing_javascript'>Existing JavaScript</h3>
+<p>Since new javascript should be written in coffeescript, we will immediately proceed with the best practices and coding conventions for the <a href='http://jashkenas.github.com/coffee-script/'>CoffeeScript</a> programming language. Most of the content here will still be applicable to Javascript.</p>
+
+<h2 id='naming_conventions'>Naming Conventions</h2>
+
+<p>Use <code>camelCase</code> (with a leading lowercase character) to name all variables, methods, and object properties.</p>
+
+<p>Use <code>CamelCase</code> (with a leading uppercase character) to name all classes. <em>(This style is also commonly referred to as <code>PascalCase</code>, <code>CamelCaps</code>, or <code>CapWords</code>, among <a href='http://en.wikipedia.org/wiki/CamelCase#Variations_and_synonyms'>other alternatives</a>.)</em></p>
+
+<p><em>(The <strong>official</strong> CoffeeScript convention is camelcase, because this simplifies interoperability with JavaScript. For more on this decision, see <a href='https://github.com/jashkenas/coffee-script/issues/425'>here</a>.)</em></p>
+
+<p>For constants, use all uppercase with underscores:</p>
+
+<pre><code>  CONSTANT_LIKE_THIS</code></pre>
+
+<p>Methods and variables that are intended to be &#8220;private&#8221; should begin with a leading underscore:</p>
+
+<pre><code>  _privateMethod: -&gt;</code></pre>
+
+<h2 id='code_layout'>Code layout</h2>
+
+<h3 id='tabs_or_spaces'>Tabs or Spaces?</h3>
+
+<p>Use <strong>spaces only</strong>, with <strong>2 spaces</strong> per indentation level. Never mix tabs and spaces.</p>
+
+<h3 id='parenthesis'>Parenthesis</h3>
+
+<p>Use implicit parentheses when possible.</p>
+
+<h3 id='bindings'>Bindings</h3>
+
+<p>Use <code>$.fn.on</code> instead of <code>$.fn.bind</code>, <code>$.fn.delegate</code> and <code>$.fn.live</code>.</p>
+
+<h3 id='ajax'>AJAX</h3>
+
+<p>Don&#8217;t ever use <code>$.get</code> or <code>$.post</code>. Instead use <code>$.ajax</code> and provide both a success handler <strong>and</strong> an error handler.</p>
+
+<h3 id='maximum_line_length'>Maximum Line Length</h3>
+
+<p>Limit all lines to a maximum of 79 characters.</p>
+
+<h3 id='blank_lines'>Blank Lines</h3>
+
+<p>Separate top-level function and class definitions with a single blank line.</p>
+
+<p>Separate method definitions inside of a class with a single blank line.</p>
+
+<p>Use a single blank line within the bodies of methods or functions in cases where this improves readability (e.g., for the purpose of delineating logical sections).</p>
+
+<h3 id='trailing_whitespace'>Trailing Whitespace</h3>
+
+<p>Do not include trailing whitespace on any lines.</p>
+
+<h3 id='encoding'>Encoding</h3>
+
+<p>UTF-8 is the preferred source file encoding.</p>
+
+<h2 id='module_imports'>Module Imports</h2>
+
+<p>If using a module system (CommonJS Modules, AMD, etc.), <code>require</code> statements should be placed on separate lines.</p>
+
+<pre><code>require &#39;lib/setup&#39;
+Backbone = require &#39;backbone&#39;</code></pre>
+
+<p>These statements should be grouped in the following order:</p>
+
+<ol>
+<li>Standard library imports <em>(if a standard library exists)</em></li>
+
+<li>Third party library imports</li>
+
+<li>Local imports <em>(imports specific to this application or library)</em></li>
+</ol>
+
+<h2 id='whitespace_in_expressions_and_statements'>Whitespace in Expressions and Statements</h2>
+
+<p>Avoid extraneous whitespace in the following situations:</p>
 
 <ul>
-<li>Avoid adding new <code>.js</code> files.</li>
+<li>
+<p>Immediately inside parentheses, brackets or braces</p>
 
-<li>Use soft-tabs with a two space indent.</li>
+<pre><code>($ &#39;body&#39;) # Yes
+( $ &#39;body&#39; ) # No</code></pre>
+</li>
 
-<li>Do your best to never use a semicolon. This means avoiding them at line breaks and avoiding multi-statement lines. For more info, read <a href='http://mislav.uniqpath.com/2010/05/semicolons/'>Mislav&#8217;s blog post</a>.</li>
+<li>
+<p>Immediately before a comma</p>
+
+<pre><code>console.log x, y # Yes
+console.log x , y # No</code></pre>
+</li>
 </ul>
 
-<h2 id='documentation'>Documentation</h2>
+<p>Additional recommendations:</p>
 
-<p>Use <a href='http://tomdoc.org'>TomDoc</a> to the best of your ability. Since we do a lot of DOM caching and such, I don&#8217;t think it&#8217;s plausable to strictly keep to it (and document every single method/property).</p>
+<ul>
+<li>
+<p>Always surround these binary operators with a <strong>single space</strong> on either side</p>
 
-<h2 id='selectors'>Selectors</h2>
+<ul>
+<li>
+<p>assignment: <code>=</code></p>
 
-<p>Try to prefix all javascript-based selectors with <code>js-</code>. This is taken from <a href='http://ozmm.org/posts/slightly_obtrusive_javascript.html'>slightly obtrusive javascript</a>. The idea is that you should be able to tell a presentational class from a functional class. Most of the codebase doesn&#8217;t do this, let&#8217;s try and move toward it.</p>
+<ul>
+<li>
+<p><em>Note that this also applies when indicating default parameter value(s) in a function declaration</em></p>
+
+<pre><code>test: (param = null) -&gt; # Yes
+test: (param=null) -&gt; # No</code></pre>
+</li>
+
+<li>
+<p>augmented assignment: <code>+=</code>, <code>-=</code>, etc.</p>
+</li>
+
+<li>
+<p>comparisons: <code>==</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>unless</code>, etc.</p>
+</li>
+
+<li>
+<p>arithmetic operators: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, etc.</p>
+</li>
+
+<li>
+<p><em>(Do not use more than one space around these operators)</em></p>
+
+<pre><code># Yes
+x = 1
+y = 1
+fooBar = 3
+
+# No
+x      = 1
+y      = 1
+fooBar = 3</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h2 id='comments'>Comments</h2>
+
+<p>If modifying code that is described by an existing comment, update the comment such that it accurately reflects the new code. (Ideally, improve the code to obviate the need for the comment, and delete the comment entirely.)</p>
+
+<p>The first word of the comment should be capitalized, unless the first word is an identifier that begins with a lower-case letter.</p>
+
+<p>If a comment is short, the period at the end can be omitted.</p>
+
+<h3 id='block_comments'>Block Comments</h3>
+
+<p>Block comments apply to the block of code that follows them.</p>
+
+<p>Each line of a block comment starts with a <code>#</code> and a single space, and should be indented at the same level of the code that it describes.</p>
+
+<p>Paragraphs inside of block comments are separated by a line containing a single <code>#</code>.</p>
+
+<pre><code>  # This is a block comment. Note that if this were a real block
+  # comment, we would actually be describing the proceeding code.
+  #
+  # This is the second paragraph of the same block comment. Note
+  # that this paragraph was separated from the previous paragraph
+  # by a line containing a single comment character.
+
+  init()
+  start()
+  stop()</code></pre>
+
+<h3 id='inline_comments'>Inline Comments</h3>
+
+<p>Inline comments are placed on the line immediately above the statement that they are describing. If the inline comment is sufficiently short, it can be placed on the same line as the statement (separated by a single space from the end of the statement).</p>
+
+<p>All inline comments should start with a <code>#</code> and a single space.</p>
+
+<p>The use of inline comments should be limited, because their existence is typically a sign of a code smell.</p>
+
+<p>Do not use inline comments when they state the obvious:</p>
+
+<pre><code>  # No
+  x = x + 1 # Increment x</code></pre>
+
+<p>However, inline comments can be useful in certain scenarios:</p>
+
+<pre><code>  # Yes
+  x = x + 1 # Compensate for border</code></pre>
+
+<h2 id='functions'>Functions</h2>
+
+<p><em>(These guidelines also apply to the methods of a class.)</em></p>
+
+<p>When declaring a function that takes arguments, always use a single space after the closing parenthesis of the arguments list:</p>
+
+<pre><code>  foo = (arg1, arg2) -&gt; # Yes
+  foo = (arg1, arg2)-&gt; # No</code></pre>
+
+<p>Do not use parentheses when declaring functions that take no arguments:</p>
+
+<pre><code>  bar = -&gt; # Yes
+  bar = () -&gt; # No</code></pre>
+
+<p>In cases where method calls are being chained and the code does not fit on a single line, each call should be placed on a separate line and indented by one level (i.e., two spaces), with a leading <code>.</code>.</p>
+
+<pre><code>  [1..3]
+    .map((x) -&gt; x * x)
+    .concat([10..12])
+    .filter((x) -&gt; x &lt; 11)
+    .reduce((x, y) -&gt; x + y)</code></pre>
+
+<p>When calling functions, choose to omit or include parentheses in such a way that optimizes for readability. Keeping in mind that &#8220;readability&#8221; can be subjective, the following examples demonstrate cases where parentheses have been omitted or included in a manner that the community deems to be optimal:</p>
+
+<pre><code>  baz 12
+
+  brush.ellipse x: 10, y: 20 # Braces can also be omitted or included for readability
+
+  foo(4).bar(8)
+
+  obj.value(10, 20) / obj.value(20, 10)
+
+  print inspect value
+
+  new Tag(new Value(a, b), new Arg(c))</code></pre>
+
+<p>You will sometimes see parentheses used to group functions (instead of being used to group function parameters). Examples of using this style (hereafter referred to as the &#8220;function grouping style&#8221;):</p>
+
+<pre><code>  ($ &#39;#selektor&#39;).addClass &#39;klass&#39;
+
+  (foo 4).bar 8</code></pre>
+
+<p>This is in contrast to:</p>
+
+<pre><code>  $(&#39;#selektor&#39;).addClass &#39;klass&#39;
+
+  foo(4).bar 8</code></pre>
+
+<p>In cases where method calls are being chained, some adopters of this style prefer to use function grouping for the initial call only:</p>
+
+<pre><code>  ($ &#39;#selektor&#39;).addClass(&#39;klass&#39;).hide() # Initial call only
+  (($ &#39;#selektor&#39;).addClass &#39;klass&#39;).hide() # All calls</code></pre>
+
+<p>The function grouping style is not recommended. However, <strong>if the function grouping style is adopted for a particular project, be consistent with its usage.</strong></p>
+
+<h2 id='strings'>Strings</h2>
+
+<p>Use string interpolation instead of string concatenation:</p>
+
+<pre><code>  &quot;this is an #{adjective} string&quot; # Yes
+  &quot;this is an &quot; + adjective + &quot; string&quot; # No</code></pre>
+
+<p>Prefer single quoted strings (<code>&#39;&#39;</code>) instead of double quoted (<code>&quot;&quot;</code>) strings, unless features like string interpolation are being used for the given string.</p>
+
+<h2 id='conditionals'>Conditionals</h2>
+
+<p>Favor <code>unless</code> over <code>if</code> for negative conditions.</p>
+
+<p>Instead of using <code>unless...else</code>, use <code>if...else</code>:</p>
+
+<pre><code>  # Yes
+  if true
+    ...
+  else
+    ...
+
+  # No
+  unless false
+    ...
+  else
+    ...</code></pre>
+
+<p>Multi-line if/else clauses should use indentation:</p>
+
+<pre><code>  # Yes
+  if true
+    ...
+  else
+    ...
+
+  # No
+  if true then ...
+  else ...</code></pre>
+
+<h2 id='looping_and_comprehensions'>Looping and Comprehensions</h2>
+
+<p>Take advantage of comprehensions whenever possible:</p>
+
+<pre><code>  # Yes
+  result = (item.name for item in array)
+
+  # No
+  results = []
+  for item in array
+    results.push item.name</code></pre>
+
+<p>To filter:</p>
+
+<pre><code>  result = (item for item in array when item.name is &quot;test&quot;)</code></pre>
+
+<p>To iterate over the keys and values of objects:</p>
+
+<pre><code>  object = one: 1, two: 2
+  alert(&quot;#{key} = #{value}&quot;) for key, value of object</code></pre>
+
+<h2 id='extending_native_objects'>Extending Native Objects</h2>
+
+<p>Do not modify native objects.</p>
+
+<p>For example, do not modify <code>Array.prototype</code> to introduce <code>Array#forEach</code>.</p>
+
+<h2 id='exceptions'>Exceptions</h2>
+
+<p>Do not suppress exceptions.</p>
+
+<h2 id='annotations'>Annotations</h2>
+
+<p>Use annotations when necessary to describe a specific action that must be taken against the indicated block of code.</p>
+
+<p>Write the annotation on the line immediately above the code that the annotation is describing.</p>
+
+<p>The annotation keyword should be followed by a colon and a space, and a descriptive note.</p>
+
+<pre><code>  # FIXME: The client&#39;s current state should *not* affect payload processing.
+  resetClientState()
+  processPayload()</code></pre>
+
+<p>If multiple lines are required by the description, indent subsequent lines with two spaces:</p>
+
+<pre><code>  # TODO: Ensure that the value returned by this call falls within a certain
+  #   range, or throw an exception.
+  analyze()</code></pre>
+
+<p>Annotation types:</p>
+
+<ul>
+<li><code>TODO</code>: describe missing functionality that should be added at a later date</li>
+
+<li><code>FIXME</code>: describe broken code that must be fixed</li>
+
+<li><code>OPTIMIZE</code>: describe code that is inefficient and may become a bottleneck</li>
+
+<li><code>HACK</code>: describe the use of a questionable (or ingenious) coding practice</li>
+
+<li><code>REVIEW</code>: describe code that should be reviewed to confirm implementation</li>
+</ul>
+
+<p>If a custom annotation is required, the annotation should be documented in the project&#8217;s README.</p>
+
+<h2 id='miscellaneous'>Miscellaneous</h2>
+
+<p><code>and</code> is preferred over <code>&amp;&amp;</code>.</p>
+
+<p><code>or</code> is preferred over <code>||</code>.</p>
+
+<p><code>is</code> is preferred over <code>==</code>.</p>
+
+<p><code>not</code> is preferred over <code>!</code>.</p>
+
+<p><code>or=</code> should be used when possible:</p>
+
+<pre><code>  temp or= {} # Yes
+  temp = temp || {} # No</code></pre>
+
+<p>Prefer shorthand notation (<code>::</code>) for accessing an object&#8217;s prototype:</p>
+
+<pre><code>  Array::slice # Yes
+  Array.prototype.slice # No</code></pre>
+
+<p>Prefer <code>@property</code> over <code>this.property</code>.</p>
+
+<pre><code>  return @property # Yes
+  return this.property # No</code></pre>
+
+<p>However, avoid the use of <strong>standalone</strong> <code>@</code>:</p>
+
+<pre><code>  return this # Yes
+  return @ # No</code></pre>
+
+<p>Avoid <code>return</code> where not required, unless the explicit return increases clarity.</p>
+
+<p>Use splats (<code>...</code>) when working with functions that accept variable numbers of arguments:</p>
+
+<pre><code>  console.log args... # Yes
+
+  (a, b, c, rest...) -&gt; # Yes</code></pre>
         </div>
       </section>
       <footer>
