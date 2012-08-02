@@ -25,17 +25,26 @@ end
 
 # TODO: Add an auto start for jekyll to compile
 task :deploy do
-  ENV['JEKYLL_ENV'] = 'production'
-
+  # precompile for production
   Rake::Task["pre_compile"].execute
 
-  puts "Adding all files in git"
+  # run jekyll command to generate site folder
+  `jekyll`
+
+  # copy the _site folder in a tmp folder outside the repo
+  `mkdir ~/jekylltmp`
+  `cp -r _site ~/jekylltmp/`
+
+  # switch to gh-pages branch
+  `git checkout test_gh_pages`
+
+  # copy contents of _site to gh-pages root (with overrides)
+  `cp -rf ~/jekylltmp/* .`
+
+  # git add + commit
   `git add .`
-  puts "Adding deleted files"
-  `git add -u .`
-  puts "Add a commit message..."
   `git commit`
-  puts "Pushing..."
-  `git push origin gh-pages`
-  puts "Deploy done!"
+
+  # delete the tmp folder from jekyll
+  `rm -r ~/jekylltmp`
 end
