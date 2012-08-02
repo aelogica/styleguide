@@ -4,6 +4,8 @@ require 'haml'
 
 desc 'Pre-compile the files'
 task :pre_compile do
+  puts "ENV: #{ENV['JEKYLL_ENV']}"
+
   puts "\nCompiling HAML files..."
   file_list = Dir.glob("**/*.haml")
 
@@ -23,6 +25,8 @@ end
 
 # TODO: Add an auto start for jekyll to compile
 task :deploy do
+  ENV['JEKYLL_ENV'] = 'production'
+
   Rake::Task["pre_compile"].execute
 
   puts "Adding all files in git"
