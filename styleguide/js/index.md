@@ -3,11 +3,11 @@ layout: default
 name: js
 toc:
   - bookmark: overview
+  - bookmark: naming_conventions
   - bookmark: code_layout
   - bookmark: module_imports
   - bookmark: whitespace_in_expressions_and_statements
   - bookmark: comments
-  - bookmark: naming_conventions
   - bookmark: functions
   - bookmark: strings
   - bookmark: conditionals
@@ -22,63 +22,53 @@ toc:
 
 Most, if not all, of this page was taken from [polarmobile's Coffeescript Styleguide](https://github.com/polarmobile/coffeescript-style-guide). The idea is to make this document evolve over time as we follow this internally.
 
-## Coding Style
+The guide can be summarized in two steps:
 
 *   Avoid adding new `.js` files. Instead, write new JS in CoffeeScript.
-*   Use implicit parentheses when possible.
-<!-- *   Follow [@jashkenas][1]'s style. See the [documentation][2] for good examples. -->
-<!-- *   Any top level objects should be namespaced under the `GitHub` namespace. -->
-*   Don't ever use `$.get` or `$.post`. Instead use `$.ajax` and provide both a success handler **and** an error handler.
-*   Use `$.fn.on` instead of `$.fn.bind`, `$.fn.delegate` and `$.fn.live`.
-
-<!-- ## Documentation
-
-Use [TomDoc][4] to the best of your ability. Since we do a lot of DOM caching and such, I don't think it's plausable to strictly keep to it (and document every single method/property).
-
-## Selectors
-
-Try to prefix all javascript-based selectors with `js-`. This is taken from [slightly obtrusive javascript][5]. The idea is that you should be able to tell a presentational class from a functional class. Most of the codebase doesn't do this, let's try and move toward it. -->
+*   Follow [@jashkenas][1]'s style. See the [documentation][2] for good examples.
 
  [1]: https://github.com/jashkenas
  [2]: http://jashkenas.github.com/coffee-script/
- [3]: http://mislav.uniqpath.com/2010/05/semicolons/
- [4]: http://tomdoc.org
- [5]: http://ozmm.org/posts/slightly_obtrusive_javascript.html
-
 
 # CoffeeScript Style Guide
 
-Since new javascript should be written in coffeescript, we will immediately proceed with the best practices and coding conventions for the [CoffeeScript][coffeescript] programming language.
+Since new javascript should be written in coffeescript, we will immediately proceed with the best practices and coding conventions for the [CoffeeScript](http://jashkenas.github.com/coffee-script/) programming language. Most of the content here will still be applicable to Javascript.
 
-<!-- ## Table of Contents
 
-* [The CoffeeScript Style Guide](#guide)
-  * [Code Layout](#code_layout)
-    * [Tabs or Spaces?](#tabs_or_spaces)
-    * [Maximum Line Length](#maximum_line_length)
-    * [Blank Lines](#blank_lines)
-    * [Trailing Whitespace](#trailing_whitespace)
-    * [Encoding](#encoding)
-  * [Module Imports](#module_imports)
-  * [Whitespace in Expressions and Statements](#whitespace)
-  * [Comments](#comments)
-    * [Block Comments](#block_comments)
-    * [Inline Comments](#inline_comments)
-  * [Naming Conventions](#naming_conventions)
-  * [Functions](#functions)
-  * [Strings](#strings)
-  * [Conditionals](#conditionals)
-  * [Looping and Comprehensions](#looping_and_comprehensions)
-  * [Extending Native Objects](#extending_native_objects)
-  * [Exceptions](#exceptions)
-  * [Annotations](#annotations)
-  * [Miscellaneous](#miscellaneous) -->
+## Naming Conventions
+
+Use `camelCase` (with a leading lowercase character) to name all variables, methods, and object properties.
+
+Use `CamelCase` (with a leading uppercase character) to name all classes. _(This style is also commonly referred to as `PascalCase`, `CamelCaps`, or `CapWords`, among [other alternatives](http://en.wikipedia.org/wiki/CamelCase#Variations_and_synonyms).)_
+
+_(The **official** CoffeeScript convention is camelcase, because this simplifies interoperability with JavaScript. For more on this decision, see [here](https://github.com/jashkenas/coffee-script/issues/425).)_
+
+For constants, use all uppercase with underscores:
+
+      CONSTANT_LIKE_THIS
+
+Methods and variables that are intended to be "private" should begin with a leading underscore:
+
+      _privateMethod: ->
+
 
 ## Code layout
 
 ### Tabs or Spaces?
 
 Use **spaces only**, with **2 spaces** per indentation level. Never mix tabs and spaces.
+
+### Parenthesis
+
+Use implicit parentheses when possible.
+
+### Bindings
+
+Use `$.fn.on` instead of `$.fn.bind`, `$.fn.delegate` and `$.fn.live`.
+
+### AJAX
+
+Don't ever use `$.get` or `$.post`. Instead use `$.ajax` and provide both a success handler **and** an error handler.
 
 ### Maximum Line Length
 
@@ -130,9 +120,9 @@ Avoid extraneous whitespace in the following situations:
 Additional recommendations:
 
 - Always surround these binary operators with a **single space** on either side
-  
+
   - assignment: `=`
-  
+
     - _Note that this also applies when indicating default parameter value(s) in a function declaration_
 
           test: (param = null) -> # Yes
@@ -201,22 +191,6 @@ However, inline comments can be useful in certain scenarios:
       # Yes
       x = x + 1 # Compensate for border
 
-
-## Naming Conventions
-
-Use `camelCase` (with a leading lowercase character) to name all variables, methods, and object properties.
-
-Use `CamelCase` (with a leading uppercase character) to name all classes. _(This style is also commonly referred to as `PascalCase`, `CamelCaps`, or `CapWords`, among [other alternatives][camel-case-variations].)_
-
-_(The **official** CoffeeScript convention is camelcase, because this simplifies interoperability with JavaScript. For more on this decision, see [here][coffeescript-issue-425].)_
-
-For constants, use all uppercase with underscores:
-
-      CONSTANT_LIKE_THIS
-
-Methods and variables that are intended to be "private" should begin with a leading underscore:
-
-      _privateMethod: ->
 
 
 ## Functions
@@ -290,6 +264,135 @@ Use string interpolation instead of string concatenation:
 
 Prefer single quoted strings (`''`) instead of double quoted (`""`) strings, unless features like string interpolation are being used for the given string.
 
-[coffeescript]: http://jashkenas.github.com/coffee-script/
-[coffeescript-issue-425]: https://github.com/jashkenas/coffee-script/issues/425
-[camel-case-variations]: http://en.wikipedia.org/wiki/CamelCase#Variations_and_synonyms
+
+## Conditionals
+
+Favor `unless` over `if` for negative conditions.
+
+Instead of using `unless...else`, use `if...else`:
+
+      # Yes
+      if true
+        ...
+      else
+        ...
+
+      # No
+      unless false
+        ...
+      else
+        ...
+
+Multi-line if/else clauses should use indentation:
+
+      # Yes
+      if true
+        ...
+      else
+        ...
+
+      # No
+      if true then ...
+      else ...
+
+
+## Looping and Comprehensions
+
+Take advantage of comprehensions whenever possible:
+
+      # Yes
+      result = (item.name for item in array)
+
+      # No
+      results = []
+      for item in array
+        results.push item.name
+
+To filter:
+
+      result = (item for item in array when item.name is "test")
+
+To iterate over the keys and values of objects:
+
+      object = one: 1, two: 2
+      alert("#{key} = #{value}") for key, value of object
+
+
+## Extending Native Objects
+
+Do not modify native objects.
+
+For example, do not modify `Array.prototype` to introduce `Array#forEach`.
+
+
+## Exceptions
+
+Do not suppress exceptions.
+
+
+## Annotations
+
+Use annotations when necessary to describe a specific action that must be taken against the indicated block of code.
+
+Write the annotation on the line immediately above the code that the annotation is describing.
+
+The annotation keyword should be followed by a colon and a space, and a descriptive note.
+
+      # FIXME: The client's current state should *not* affect payload processing.
+      resetClientState()
+      processPayload()
+
+If multiple lines are required by the description, indent subsequent lines with two spaces:
+
+      # TODO: Ensure that the value returned by this call falls within a certain
+      #   range, or throw an exception.
+      analyze()
+
+Annotation types:
+
+- `TODO`: describe missing functionality that should be added at a later date
+- `FIXME`: describe broken code that must be fixed
+- `OPTIMIZE`: describe code that is inefficient and may become a bottleneck
+- `HACK`: describe the use of a questionable (or ingenious) coding practice
+- `REVIEW`: describe code that should be reviewed to confirm implementation
+
+If a custom annotation is required, the annotation should be documented in the project's README.
+
+
+## Miscellaneous
+
+`and` is preferred over `&&`.
+
+`or` is preferred over `||`.
+
+`is` is preferred over `==`.
+
+`not` is preferred over `!`.
+
+`or=` should be used when possible:
+
+      temp or= {} # Yes
+      temp = temp || {} # No
+
+Prefer shorthand notation (`::`) for accessing an object's prototype:
+
+      Array::slice # Yes
+      Array.prototype.slice # No
+
+Prefer `@property` over `this.property`.
+
+      return @property # Yes
+      return this.property # No
+
+However, avoid the use of **standalone** `@`:
+
+      return this # Yes
+      return @ # No
+
+Avoid `return` where not required, unless the explicit return increases clarity.
+
+Use splats (`...`) when working with functions that accept variable numbers of arguments:
+
+      console.log args... # Yes
+
+      (a, b, c, rest...) -> # Yes
