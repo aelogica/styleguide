@@ -33,7 +33,7 @@ task :deploy do
 
   # copy the _site folder in a tmp folder outside the repo
   `mkdir ~/jekylltmp`
-  `cp -r _site ~/jekylltmp/`
+  `cp -r _site/* ~/jekylltmp/`
 
   # switch to gh-pages branch
   `git checkout test_gh_pages`
