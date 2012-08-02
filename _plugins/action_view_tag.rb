@@ -1,4 +1,6 @@
 class ImageLink < Liquid::Tag
+  CONFIG = YAML.load_file("_config.yml")
+
   def initialize(tag_name, image_name, tokens)
      super
      @image_name = image_name
@@ -9,7 +11,7 @@ class ImageLink < Liquid::Tag
     if Jekyll::ENV == 'development'
       "/#{@asset_type}/#{@image_name}"
     else
-      "#{CONFIG['base_url']}/#{CONFIG['project_name']}/#{@asset_type}/#{@image_name}"
+      "http://#{CONFIG['base_url']}/#{CONFIG['project_name']}/#{@asset_type}/#{@image_name}"
     end
   end
 end

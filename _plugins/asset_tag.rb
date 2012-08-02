@@ -13,7 +13,7 @@ class AssetTag < Liquid::Tag
     if Jekyll::ENV == 'development'
       markup "/#{@asset_type}/#{name_with_ext}"
     else
-      markup "#{CONFIG['base_url']}/#{CONFIG['project_name']}/#{@asset_type}/#{name_with_ext}"
+      markup "http://#{CONFIG['base_url']}/#{CONFIG['project_name']}/#{@asset_type}/#{name_with_ext}"
     end
   end
 
