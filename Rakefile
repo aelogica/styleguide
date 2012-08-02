@@ -41,6 +41,9 @@ task :deploy do
   # copy contents of _site to gh-pages root (with overrides)
   `cp -rf ~/jekylltmp/* .`
 
+  # add nojekyll file
+  `touch .nojekyll`
+
   # git add + commit
   `git add .`
   `git commit`
