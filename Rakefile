@@ -36,7 +36,7 @@ task :deploy do
   `cp -r _site/* ~/jekylltmp/`
 
   # switch to gh-pages branch
-  `git checkout test_gh_pages`
+  `git checkout gh-pages`
 
   # copy contents of _site to gh-pages root (with overrides)
   `cp -rf ~/jekylltmp/* .`
