@@ -127,7 +127,7 @@ Don't use inefficient selectors. More info can be seen in the [Google Browser Re
       .nav-link
         color: #00f
 
-* On the same note, avoid using the universal selector (*).
+* On the same note, avoid using the universal selector (\*).
 
       // bad
       ul *
