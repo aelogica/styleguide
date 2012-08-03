@@ -54,15 +54,12 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
   interpreter, but its proper use is the key to writing easily
   readable code.
 
-
         sum = 1 + 2
         a, b = 1, 2
         1 > 2 ? true : false; puts 'Hi'
         [1, 2, 3].each { |e| puts e }
 
-
     The only exception is when using the exponent operator:
-
 
         # bad
         e = M * c ** 2
@@ -70,18 +67,14 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
         # good
         e = M * c**2
 
-
 * No spaces after `(`, `[` or before `]`, `)`.
-
 
         some(arg).other
         [1, 2, 3].length
 
-
 * Indent `when` as deep as `case`. I know that many would disagree
   with this one, but it's the style established in both the "The Ruby
   Programming Language" and "Programming Ruby".
-
 
         case
         when song.name == 'Misty'
@@ -103,10 +96,8 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
                else 'Jazz'
                end
 
-
 * Use empty lines between `def`s and to break up a method into logical
   paragraphs.
-
 
         def some_method
           data = initialize(options)
@@ -120,9 +111,7 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
           result
         end
 
-
 * Align the parameters of a method call if they span over multiple lines.
-
 
         # starting point (line is too long)
         def send_mail(source)
@@ -155,7 +144,6 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
                          body: source.text)
         end
 
-
 * Use RDoc and its conventions for API documentation.  Don't put an
   empty line between the comment block and the `def`.
 * Keep lines fewer than 80 characters.
@@ -166,7 +154,6 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
 * Use `def` with parentheses when there are arguments. Omit the
   parentheses when the method doesn't accept any arguments.
 
-
         def some_method
           # body omitted
         end
@@ -175,13 +162,11 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
           # body omitted
         end
 
-
 * Never use `for`, unless you know exactly why. Most of the time iterators
   should be used instead. `for` is implemented in terms of `each` (so
   you're adding a level of indirection), but with a twist - `for`
   doesn't introduce a new scope (unlike `each`) and variables defined
   in its block will be visible outside it.
-
 
         arr = [1, 2, 3]
 
@@ -193,9 +178,7 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
         # good
         arr.each { |elem| puts elem }
 
-
 * Never use `then` for multi-line `if/unless`.
-
 
         # bad
         if some_condition then
@@ -207,10 +190,8 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
           # body omitted
         end
 
-
 * Favor the ternary operator(`?:`) over `if/then/else/end` constructs.
   It's more common and obviously more concise.
-
 
         # bad
         result = if some_condition then something else something_else end
@@ -218,11 +199,9 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
         # good
         result = some_condition ? something : something_else
 
-
 * Use one expression per branch in a ternary operator. This
   also means that ternary operators must not be nested. Prefer
   `if/else` constructs in these cases.
-
 
         # bad
         some_condition ? (nested_condition ? nested_something : nested_something_else) : something_else
@@ -234,17 +213,14 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
           something_else
         end
 
-
 * Never use `if x: ...` - it is removed in Ruby 1.9. Use
   the ternary operator instead.
-
 
         # bad
         result = if some_condition: something else something_else end
 
         # good
         result = some_condition ? something : something_else
-
 
 * Never use `if x; ...`. Use the ternary operator instead.
 
@@ -257,7 +233,6 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
   of thumb: If you have to use outer parentheses, you are using the
   wrong operators.)
 
-
         # boolean expression
         if some_condition && some_other_condition
           do_something
@@ -266,9 +241,7 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
         # control flow
         document.saved? or document.save!
 
-
 * Avoid multi-line `?:` (the ternary operator), use `if/unless` instead.
-
 
         # bad
         some_condition ? do_something; and_another_thing : do_something_else
@@ -281,10 +254,8 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
           do_something_else
         end
 
-
 * Favor modifier `if/unless` usage when you have a single-line
   body. Another good alternative is the usage of control flow `and/or`.
-
 
         # bad
         if some_condition
@@ -297,10 +268,8 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
         # another good option
         some_condition and do_something
 
-
 * Favor `unless` over `if` for negative conditions (or control
   flow `or`).
-
 
         # bad
         do_something if !some_condition
@@ -311,9 +280,7 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
         # another good option
         some_condition or do_something
 
-
 * Never use `unless` with `else`. Rewrite these with the positive case first.
-
 
         # bad
         unless success?
@@ -329,11 +296,9 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
           puts 'failure'
         end
 
-
 * Don't use parentheses around the condition of an `if/unless/while`,
   unless the condition contains an assignment (see "Using the return
   value of `=`" below).
-
 
         # bad
         if (x > 10)
@@ -350,10 +315,8 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
           # body omitted
         end
 
-
 * Favor modifier `while/until` usage when you have a single-line
   body.
-
 
         # bad
         while some_condition
@@ -363,9 +326,7 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
         # good
         do_something while some_condition
 
-
 * Favor `until` over `while` for negative conditions.
-
 
         # bad
         do_something while !some_condition
@@ -373,13 +334,11 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
         # good
         do_something until some_condition
 
-
 * Omit parentheses around parameters for methods that are part of an
   internal DSL (e.g. Rake, Rails, RSpec), methods that are with
   "keyword" status in Ruby (e.g. `attr_reader`, `puts`) and attribute
   access methods. Use parentheses around the arguments of all other
   method invocations.
-
 
         class Person
           attr_reader :name, :age
@@ -395,13 +354,11 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
         x = Math.sin(y)
         array.delete(e)
 
-
 * Prefer `{...}` over `do...end` for single-line blocks.  Avoid using
   `{...}` for multi-line blocks (multiline chaining is always
   ugly). Always use `do...end` for "control flow" and "method
   definitions" (e.g. in Rakefiles and certain DSLs).  Avoid `do...end`
   when chaining.
-
 
         names = ['Bozhidar', 'Steve', 'Sarah']
 
@@ -421,13 +378,9 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
           name.start_with?('S')
         end.map { |name| name.upcase }
 
-
-    Some will argue that multiline chaining would look OK with the use of {...}, but they should
-    ask themselves - is this code really readable and can't the blocks contents be extracted into
-    nifty methods?
+  Some will argue that multiline chaining would look OK with the use of \{...\}, but they should ask themselves - is this code really readable and can't the blocks contents be extracted into nifty methods?
 
 * Avoid `return` where not required.
-
 
         # bad
         def some_method(some_arr)
@@ -439,9 +392,7 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
           some_arr.size
         end
 
-
 * Avoid `self` where not required.
-
 
         # bad
         def ready?
@@ -461,9 +412,7 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
           status == :verified
         end
 
-
 * As a corollary, avoid shadowing methods with local variables unless they are both equivalent
-
 
         class Foo
           attr_accessor :options
@@ -489,9 +438,7 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
           end
         end
 
-
 * Use spaces around the `=` operator when assigning default values to method parameters:
-
 
         # bad
         def some_method(arg1=:default, arg2=nil, arg3=[])
@@ -503,13 +450,10 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
           # do something...
         end
 
-
-    While several Ruby books suggest the first style, the second is much more prominent
-    in practice (and arguably a bit more readable).
+  While several Ruby books suggest the first style, the second is much more prominent in practice (and arguably a bit more readable).
 
 * Avoid line continuation (\\) where not required. In practice, avoid using
   line continuations at all.
-
 
         # bad
         result = 1 - \
@@ -519,10 +463,8 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
         result = 1 \
                  - 2
 
-
 * Using the return value of `=` (an assignment) is ok, but surround the
   assignment with parenthesis.
-
 
         # good - shows intended use of assignment
         if (v = array.grep(/foo/)) ...
@@ -533,17 +475,13 @@ This was taken from [bbatsov's Ruby Style Guide](https://github.com/bbatsov/ruby
         # also good - shows intended use of assignment and has correct precedence.
         if (v = self.next_value) == 'hello' ...
 
-
 * Use `||=` freely to initialize variables.
-
 
         # set name to Bozhidar, only if it's nil or false
         name ||= 'Bozhidar'
 
-
 * Don't use `||=` to initialize boolean variables. (Consider what
 would happen if the current value happened to be `false`.)
-
 
         # bad - would set enabled to true even if it was false
         enabled ||= true
@@ -551,20 +489,17 @@ would happen if the current value happened to be `false`.)
         # good
         enabled = true if enabled.nil?
 
-
-* Avoid using Perl-style special variables (like `$0-9`, `$``,
+* Avoid using Perl-style special variables (like `$0-9`, `$`,
   etc. ). They are quite cryptic and their use in anything but
   one-liner scripts is discouraged.
 
 * Never put a space between a method name and the opening parenthesis.
-
 
         # bad
         f (3 + 2) + 1
 
         # good
         f(3 + 2) + 1
-
 
 * If the first argument to a method begins with an open parenthesis,
   always use parentheses in the method invocation. For example, write
@@ -576,16 +511,13 @@ you if you forget either of the rules above!
 * When the keys of your hash are symbols use the Ruby 1.9 hash literal
 syntax.
 
-
         # bad
         hash = { :one => 1, :two => 2 }
 
         # good
         hash = { one: 1, two: 2 }
 
-
 * Use the new lambda literal syntax.
-
 
         # bad
         lambda = lambda { |a, b| a + b }
@@ -595,16 +527,13 @@ syntax.
         lambda = ->(a, b) { a + b }
         lambda.(1, 2)
 
-
 * Use `_` for unused block parameters.
-
 
         # bad
         result = hash.map { |k, v| v + 1 }
 
         # good
         result = hash.map { |_, v| v + 1 }
-
 
 ## Naming
 
@@ -622,7 +551,6 @@ syntax.
 * The names of potentially "dangerous" methods (i.e. methods that modify `self` or the
   arguments, `exit!` (doesn't run the finalizers like `exit` does), etc.) should end with an exclamation mark if
   there exists a safe version of that *dangerous* method.
-
 
         # bad - there is not matching 'safe' method
         class Person
@@ -645,10 +573,8 @@ syntax.
           end
         end
 
-
 * Define the non-bang (safe) method in terms of the bang (dangerous)
   one if possible.
-
 
         class Array
           def flatten_once!
@@ -666,10 +592,8 @@ syntax.
           end
         end
 
-
 * When using `reduce` with short blocks, name the arguments `|a, e|`
   (accumulator, element).
-
 
         # bad
         longest = %w{ cat sheep bear }.reduce do |m,w|
@@ -681,14 +605,11 @@ syntax.
           memo.length > word.length ? memo : word
         end
 
-
 * When defining binary operators, name the argument `other`.
-
 
         def +(other)
           # body omitted
         end
-
 
 * Prefer `map` over `collect`, `find` over `detect`, `select` over
   `find_all`, `reduce` over `inject` and `size` over `length`. This is
@@ -711,10 +632,8 @@ syntax.
   space](http://en.wikipedia.org/wiki/Sentence_spacing) after periods.
 * Avoid superfluous comments.
 
-
         # bad
         counter += 1 # increments counter by one
-
 
 * Keep existing comments up-to-date. An outdated comment is worse than no comment
 at all.
@@ -734,23 +653,19 @@ at all.
 * If multiple lines are required to describe the problem, subsequent
   lines should be indented two spaces after the `#`.
 
-
         def bar
           # FIXME: This has crashed occasionally since v3.2.1. It may
           #   be related to the BarBazUtil upgrade.
           baz(:quux)
         end
 
-
 * In cases where the problem is so obvious that any documentation would
   be redundant, annotations may be left at the end of the offending line
   with no note. This usage should be the exception and not the rule.
 
-
         def bar
           sleep 100 # OPTIMIZE
         end
-
 
 * Use `TODO` to note missing features or functionality that should be
   added at a later date.
@@ -775,7 +690,6 @@ at all.
 * Always supply a proper `to_s` method for classes that represent
   domain objects.
 
-
         class Person
           attr_reader :first_name, :last_name
 
@@ -789,10 +703,8 @@ at all.
           end
         end
 
-
 * Use the `attr` family of functions to define trivial accessors or
 mutators.
-
 
         # bad
         class Person
@@ -823,7 +735,6 @@ mutators.
 * Consider using `Struct.new`, which defines the trivial accessors,
 constructor and comparison operators for you.
 
-
         # good
         class Person
           attr_reader :first_name, :last_name
@@ -837,11 +748,9 @@ constructor and comparison operators for you.
         # better
         class Person < Struct.new(:first_name, :last_name)
         end
-        `
 
 * Consider adding factory methods to provide additional sensible ways
 to create instances of a particular class.
-
 
         class Person
           def self.create(options_hash)
@@ -849,9 +758,7 @@ to create instances of a particular class.
           end
         end
 
-
 * Prefer [duck-typing](http://en.wikipedia.org/wiki/Duck_typing) over inheritance.
-
 
         # bad
         class Animal
@@ -887,11 +794,7 @@ to create instances of a particular class.
           end
         end
 
-
-* Avoid the usage of class (`@@`) variables due to their "nasty" behavior
-in inheritance.
-
-
+* Avoid the usage of class (`@@`) variables due to their "nasty" behavior in inheritance.
         class Parent
           @@class_var = 'parent'
 
@@ -906,10 +809,7 @@ in inheritance.
 
         Parent.print_class_var # => will print "child"
 
-
-    As you can see all the classes in a class hierarchy actually share one
-    class variable. Class instance variables should usually be preferred
-    over class variables.
+  As you can see all the classes in a class hierarchy actually share one class variable. Class instance variables should usually be preferred over class variables.
 
 * Assign proper visibility levels to methods (`private`, `protected`)
 in accordance with their intended usage. Don't go off leaving
@@ -917,7 +817,6 @@ everything `public` (which is the default). After all we're coding
 in *Ruby* now, not in *Python*.
 * Indent the `public`, `protected`, and `private` methods as much the
   method definitions they apply to. Leave one blank line above them.
-
 
         class SomeClass
           def public_method
@@ -930,10 +829,7 @@ in *Ruby* now, not in *Python*.
           end
         end
 
-
-* Use `def self.method` to define singleton methods. This makes the methods
-  more resistant to refactoring changes.
-
+* Use `def self.method` to define singleton methods. This makes the methods more resistant to refactoring changes.
 
         class TestClass
           # bad
@@ -959,12 +855,9 @@ in *Ruby* now, not in *Python*.
           end
         end
 
-
 ## Exceptions
 
-* Signal exceptions using the `fail` keyword. Use `raise` only when
-  catching an exception and re-raising it (because here you're not failing, but explicitly and purposefully raising an exception).
-
+* Signal exceptions using the `fail` keyword. Use `raise` only when catching an exception and re-raising it (because here you're not failing, but explicitly and purposefully raising an exception).
 
         begin
           fail 'Oops';
@@ -972,13 +865,11 @@ in *Ruby* now, not in *Python*.
           raise if error.message != 'Oops'
         end
 
-
 * Never return from an `ensure` block. If you explicitly return from a
   method inside an `ensure` block, the return will take precedence over
   any exception being raised, and the method will return as if no
   exception had been raised at all. In effect, the exception will be
   silently thrown away.
-
 
         def foo
           begin
@@ -988,9 +879,7 @@ in *Ruby* now, not in *Python*.
           end
         end
 
-
 * Use *implicit begin blocks* when possible.
-
 
         # bad
         def foo
@@ -1008,10 +897,8 @@ in *Ruby* now, not in *Python*.
           # failure handling goes here
         end
 
-
 * Mitigate the proliferation of `begin` blocks via the use of
   *contingency methods* (a term coined by Avdi Grimm).
-
 
         # bad
         begin
@@ -1037,9 +924,7 @@ in *Ruby* now, not in *Python*.
 
         with_io_error_handling { something_else_that_might_fail }
 
-
 * Don't suppress exceptions.
-
 
         # bad
         begin
@@ -1051,9 +936,7 @@ in *Ruby* now, not in *Python*.
         # bad
         do_something rescue nil
 
-
 * Don't use exceptions for flow of control.
-
 
         # bad
         begin
@@ -1069,10 +952,8 @@ in *Ruby* now, not in *Python*.
           n / d
         end
 
-
 * Avoid rescuing the `Exception` class.  This will trap signals and calls to
   `exit`, requiring you to `kill -9` the process.
-
 
         # bad
         begin
@@ -1099,11 +980,8 @@ in *Ruby* now, not in *Python*.
           # exception handling
         end
 
-
-
 * Put more specific exceptions higher up the rescue chain, otherwise
   they'll never be rescued from.
-
 
         # bad
         begin
@@ -1123,10 +1001,8 @@ in *Ruby* now, not in *Python*.
           # some handling
         end
 
-
 * Release external resources obtained by your program in an ensure
 block.
-
 
         f = File.open('testfile')
         begin
@@ -1137,7 +1013,6 @@ block.
           f.close unless f.nil?
         end
 
-
 * Favor the use of exceptions for the standard library over
 introducing new exception classes.
 
@@ -1145,7 +1020,6 @@ introducing new exception classes.
 
 * Prefer literal array and hash creation notation (unless you need to
 pass parameters to their constructors, that is).
-
 
         # bad
         arr = Array.new
@@ -1155,10 +1029,8 @@ pass parameters to their constructors, that is).
         arr = []
         hash = {}
 
-
 * Prefer `%w` to the literal array syntax when you need an array of
 strings.
-
 
         # bad
         STATES = ['draft', 'open', 'closed']
@@ -1166,19 +1038,15 @@ strings.
         # good
         STATES = %w(draft open closed)
 
-
 * Avoid the creation of huge gaps in arrays.
-
 
         arr = []
         arr[100] = 1 # now you have an array with lots of nils
-
 
 * Use `Set` instead of `Array` when dealing with unique elements. `Set`
   implements a collection of unordered values with no duplicates. This
   is a hybrid of `Array`'s intuitive inter-operation facilities and
   `Hash`'s fast lookup.
-
 
         # bad
         def add_if_unique(array, element)
@@ -1196,9 +1064,7 @@ strings.
         puts a
         # [1,2,3]
 
-
 * Use symbols instead of strings as hash keys.
-
 
         # bad
         hash = { 'one' => 1, 'two' => 2, 'three' => 3 }
@@ -1206,18 +1072,15 @@ strings.
         # good
         hash = { one: 1, two: 2, three: 3 }
 
-
 * Avoid the use of mutable object as hash keys.
 * Use the new 1.9 literal hash syntax in preference to the hashrocket
 syntax.
-
 
         # bad
         hash = { :one => 1, :two => 2, :three => 3 }
 
         # good
         hash = { one: 1, two: 2, three: 3 }
-
 
 * Rely on the fact that hashes in 1.9 are ordered.
 * Never modify a collection while traversing it.
@@ -1226,24 +1089,19 @@ syntax.
 
 * Prefer string interpolation instead of string concatenation:
 
-
         # bad
         email_with_name = user.name + ' <' + user.email + '>'
 
         # good
         email_with_name = "#{user.name} <#{user.email}>"
 
-
 * Consider padding string interpolation code with space. It more clearly sets the
   code apart from the string.
 
-
         "#{ user.last_name }, #{ user.first_name }"
-
 
 * Prefer single-quoted strings when you don't need string interpolation or
   special symbols such as `\t`, `\n`, `'`, etc.
-
 
         # bad
         name = "Bozhidar"
@@ -1251,10 +1109,8 @@ syntax.
         # good
         name = 'Bozhidar'
 
-
 * Don't use `{}` around instance variables being interpolated into a
   string.
-
 
         class Person
           attr_reader :first_name, :last_name
@@ -1275,11 +1131,9 @@ syntax.
           end
         end
 
-
 * Avoid using `String#+` when you need to construct large data chunks.
   Instead, use `String#<<`. Concatenation mutates the string instance in-place
   and is always faster than `String#+`, which creates a bunch of new string objects.
-
 
         # good and also fast
         html = ''
@@ -1289,29 +1143,23 @@ syntax.
           html << "<p>#{paragraph}</p>"
         end
 
-
 ## Regular Expressions
 
 * Don't use regular expressions if you just need plain text search in string:
   `string['text']`
 * For simple constructions you can use regexp directly through string index.
 
-
         match = string[/regexp/]             # get content of matched regexp
         first_group = string[/text(grp)/, 1] # get content of captured group
         string[/text (grp)/, 1] = 'replace'  # string => 'text replace'
 
-
 * Use non capturing groups when you don't use captured result of parenthesis.
-
 
         /(first|second)/   # bad
         /(?:first|second)/ # good
 
-
 * Avoid using $1-9 as it can be hard to track what they contain. Named groups
   can be used instead.
-
 
         # bad
         /(regexp)/ =~ string
@@ -1323,7 +1171,6 @@ syntax.
         ...
         process meaningful_var
 
-
 * Character classes have only few special characters you should care about:
   `^`, `-`, `\`, `]`, so don't escape `.` or brackets in `[]`.
 
@@ -1331,15 +1178,12 @@ syntax.
   If you want to match the whole string use: `\A` and `\z` (not to be
   confused with `\Z` which is the equivalent of `/\n?\z/`).
 
-
         string = "some injection\nusername"
         string[/^username$/]   # matches
         string[/\Ausername\z/] # don't match
 
-
 * Use `x` modifier for complex regexps. This makes them more readable and you
   can add some useful comments. Just be careful as spaces are ignored.
-
 
         regexp = %r{
           start         # some text
@@ -1348,7 +1192,6 @@ syntax.
           (?:alt1|alt2) # some alternation
           end
         }x
-
 
 * For complex replacements `sub`/`gsub` can be used with block or hash.
 
@@ -1360,7 +1203,6 @@ syntax.
 
 * Use `%()` for single-line strings which require both interpolation
   and embedded double-quotes. For multi-line strings, prefer heredocs.
-
 
         # bad (no interpolation needed)
         %(<div class="text">Some text</div>)
@@ -1382,9 +1224,7 @@ syntax.
         # good (requires interpolation, has quotes, single line)
         %(<tr><td class="name">#{name}</td>)
 
-
 * Use `%r` only for regular expressions matching *more than* one '/' character.
-
 
         # bad
         %r(\s+)
@@ -1395,7 +1235,6 @@ syntax.
 
         # good
         %r(^/blog/2011/(.*)$)
-
 
 * Avoid `%q`, `%Q`, `%x`, `%s`, and `%W`.
 
@@ -1411,7 +1250,6 @@ patch them.)
 
     ruby
     class_eval 'def use_relative_model_naming?; true; end', __FILE__, __LINE__
-
 
   - `define_method` is preferable to `class_eval{ def ... }`
 
@@ -1434,8 +1272,7 @@ patch them.)
       end
     end
 
-
-* avoid using `method_missing` for metaprogramming. Backtraces become messy; the behavior is not listed in `#methods`; misspelled method calls might silently work (`nukes.launch_state = false`). Consider using delegation, proxy, or `define_method` instead.  If you must, use `method_missing`,
+* Avoid using `method_missing` for metaprogramming. Backtraces become messy; the behavior is not listed in `#methods`; misspelled method calls might silently work (`nukes.launch_state = false`). Consider using delegation, proxy, or `define_method` instead.  If you must, use `method_missing`,
   - be sure to [also define `respond_to_missing?`](http://blog.marc-andre.ca/2010/11/methodmissing-politely.html)
   - only catch methods with a well-defined prefix, such as `find_by_*` -- make your code as assertive as possible.
   - call `super` at the end of your statement
@@ -1461,7 +1298,6 @@ patch them.)
 
         # best of all, though, would be to define_method as each findable attribute is declared
 
-
 ## Misc
 
 * Write `ruby -w` safe code.
@@ -1471,7 +1307,6 @@ patch them.)
 * Avoid parameter lists longer than three or four parameters.
 * If you really have to, add "global" methods to Kernel and make them private.
 * Use class instance variables instead of global variables.
-
 
         #bad
         $foo_bar = 1
@@ -1484,7 +1319,6 @@ patch them.)
         end
 
         Foo.bar = 1
-
 
 * Avoid `alias` when `alias_method` will do.
 * Use `OptionParser` for parsing complex command line options and

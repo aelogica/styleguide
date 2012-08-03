@@ -7,8 +7,6 @@ toc:
   - bookmark: html_guidelines
 ---
 
-# HTML Styleguide
-
 ## Introduction
 Most, if not all, of the content here is taken from [Github's HTML Styleguide](https://github.com/styleguide/html). The idea is to make this document evolve over time as we follow this internally.
 
@@ -22,7 +20,7 @@ A proper Doctype which triggers standards mode in your browser should always be 
 ## HTML Guidelines
 
 *   Paragraphs of text should always be placed in a `<p>` tag. Never use multiple `<br/>` tags.
-*   Items in list form should always be in `<ul>`, `<ol>`, or `<dl>`, Never a set of `<div>` or `<p>` 
+*   Items in list form should always be in `<ul>`, `<ol>`, or `<dl>`, Never a set of `<div>` or `<p>`
 *   Every form input that has text attached should utilize a `<label>` tag. *Especially radio or checkbox elements*.
 *   Even though quotes around attributes is optional, always put quotes around attributes for readability.
 
