@@ -67,7 +67,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 1, stylesheets/sass/globals/_html_defaults.sass */
+/* line 1, sass/globals/_html_defaults.sass */
 body {
   font: 14px/20px "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: white;
@@ -75,17 +75,17 @@ body {
   line-height: 1.6;
 }
 
-/* line 7, stylesheets/sass/globals/_html_defaults.sass */
+/* line 7, sass/globals/_html_defaults.sass */
 a {
   color: #88aacc;
   text-decoration: none;
 }
-/* line 11, stylesheets/sass/globals/_html_defaults.sass */
+/* line 11, sass/globals/_html_defaults.sass */
 a:hover {
   color: #cccccc;
 }
 
-/* line 1, stylesheets/sass/shared/_layout.sass */
+/* line 1, sass/shared/_layout.sass */
 #container {
   margin-left: auto;
   margin-right: auto;
@@ -146,18 +146,18 @@ nav ul li {
   white-space: nowrap;
 }
 /* line 8, sass/shared/_nav.sass */
-nav ul li .menu-item {
+nav .menu-item {
   display: block;
   padding: 10px;
   color: #999999;
   font-weight: bold;
 }
 /* line 15, sass/shared/_nav.sass */
-nav ul li .menu-item:hover {
+nav .menu-item:hover {
   color: #444444;
 }
 /* line 18, sass/shared/_nav.sass */
-nav ul li .menu-item.current {
+nav .menu-item.current {
   background: #eeeeee;
   color: #444444;
   -webkit-border-radius: 5px;
@@ -192,27 +192,49 @@ nav ul li .menu-item.current {
   border-bottom: 1px solid #efefef;
 }
 /* line 19, stylesheets/sass/components/_markdown.sass */
-.markdown > ul {
+.markdown ul {
   list-style-type: disc;
   list-style-position: inside;
   margin-left: 20px;
 }
 /* line 26, stylesheets/sass/components/_markdown.sass */
-.markdown > ul > li {
+.markdown ul > li {
   margin-bottom: 20px;
 }
 /* line 30, stylesheets/sass/components/_markdown.sass */
+.markdown ul ul {
+  list-style-type: circle;
+}
+/* line 34, stylesheets/sass/components/_markdown.sass */
 .markdown p {
   margin: 10px 0;
 }
+/* line 37, stylesheets/sass/components/_markdown.sass */
+.markdown code {
+  margin: 0 2px;
+  padding: 0 5px;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+  font-size: 12px;
+  font-family: "Courier", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* line 47, stylesheets/sass/components/_markdown.sass */
+.markdown .snippet-container code {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  background-color: transparent;
+  border-radius: 0px;
+}
 
-/* line 1, stylesheets/sass/components/_sidebar.sass */
+/* line 1, sass/components/_sidebar.sass */
 .sidebar {
   position: fixed;
   top: 0;
 }
 
-/* line 1, stylesheets/sass/components/_table_of_contents.sass */
+/* line 1, sass/components/_table_of_contents.sass */
 .table-of-contents {
   display: inline;
   float: left;
@@ -224,22 +246,22 @@ nav ul li .menu-item.current {
   margin-top: 30px;
   border-top: 1px solid #efefef;
 }
-/* line 9, stylesheets/sass/components/_table_of_contents.sass */
+/* line 9, sass/components/_table_of_contents.sass */
 .table-of-contents li {
   border-bottom: 1px solid #efefef;
 }
-/* line 12, stylesheets/sass/components/_table_of_contents.sass */
+/* line 12, sass/components/_table_of_contents.sass */
 .table-of-contents li .chapter {
   display: block;
   padding: 5px;
 }
-/* line 16, stylesheets/sass/components/_table_of_contents.sass */
+/* line 16, sass/components/_table_of_contents.sass */
 .table-of-contents li .chapter:hover {
   background: #88aacc;
   color: white;
 }
 
-/* line 1, stylesheets/sass/sections/_main_content.sass */
+/* line 1, sass/sections/_main_content.sass */
 #main-content {
   clear: both;
   margin-left: auto;
