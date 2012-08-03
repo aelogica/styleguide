@@ -1,6 +1,6 @@
 ---
 layout: default
-name: html
+name: css
 toc:
   - bookmark: introduction
   - bookmark: coding_style
