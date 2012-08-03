@@ -5,6 +5,12 @@ toc:
   - bookmark: introduction
   - bookmark: coding_style
   - bookmark: sass_style
+  - bookmark: file_organization
+  - bookmark: px_vs_em
+  - bookmark: selectors
+  - bookmark: misc
+  - bookmark: on_ie
+
 ---
 
 ## Introduction
@@ -133,7 +139,7 @@ Don't use inefficient selectors. More info can be seen in the [Google Browser Re
         font:
           size: 12px
 
-## General Styles
+## Misc
 
 * Use simple colors whenever possible:
 
@@ -157,4 +163,6 @@ Don't use inefficient selectors. More info can be seen in the [Google Browser Re
       // good
       margin: 10px 0
 
+## On IE
 
+* When required to support IE 7 or 8, avoid using the `:hover` pseudo-selector on non-link elements. Better use a javascript hover or onmouseover function as IE doesn't support it.
