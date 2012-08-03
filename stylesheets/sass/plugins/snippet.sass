@@ -134,10 +134,16 @@
     text-decoration: underline
   pre
     &.sh_sourceCode
+      font:
+        family: "Consolas", "Bitstream Vera Sans Mono", "Courier", monospace
       line-height: 1.8em
       overflow: auto
       @include grid(9)
       border: 1px solid #ddd
+
+    li
+      margin:
+        bottom: 0
 
     &.snippet-textonly
       padding: 2em

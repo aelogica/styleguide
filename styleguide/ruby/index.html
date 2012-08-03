@@ -505,7 +505,7 @@
     name.start_with?(&#39;S&#39;)
   end.map { |name| name.upcase }</code></pre>
 
-<p>Some will argue that multiline chaining would look OK with the use of , but they should ask themselves - is this code really readable and can&#8217;t the blocks contents be extracted into nifty methods?</p>
+<p>Some will argue that multiline chaining would look OK with the use of {&#8230;}, but they should ask themselves - is this code really readable and can&#8217;t the blocks contents be extracted into nifty methods?</p>
 </li>
 
 <li>
@@ -631,9 +631,7 @@
 </li>
 
 <li>
-<p>Avoid using Perl-style special variables (like <code>$0-9</code>, <code>$</code><code>,
-etc. ). They are quite cryptic and their use in anything but
-one-liner scripts is discouraged.</code></p>
+<p>Avoid using Perl-style special variables (like <code>$0-9</code>, <code>$</code>, etc. ). They are quite cryptic and their use in anything but one-liner scripts is discouraged.</p>
 </li>
 
 <li>
@@ -945,8 +943,7 @@ client does X currently?</code></p>
 
   # better
   class Person &lt; Struct.new(:first_name, :last_name)
-  end
-  `</code></pre>
+  end</code></pre>
 </li>
 
 <li>
@@ -998,12 +995,9 @@ client does X currently?</code></p>
 </li>
 
 <li>
-<p>Avoid the usage of class (<code>@@</code>) variables due to their &#8220;nasty&#8221; behavior in inheritance.</p>
+<p>Avoid the usage of class (<code>@@</code>) variables due to their &#8220;nasty&#8221; behavior in inheritance. class Parent @@class_var = &#8216;parent&#8217;</p>
 
-<pre><code>  class Parent
-    @@class_var = &#39;parent&#39;
-
-    def self.print_class_var
+<pre><code>    def self.print_class_var
       puts @@class_var
     end
   end
@@ -1543,7 +1537,7 @@ end</code></pre>
 </li>
 
 <li>
-<p>avoid using <code>method_missing</code> for metaprogramming. Backtraces become messy; the behavior is not listed in <code>#methods</code>; misspelled method calls might silently work (<code>nukes.launch_state = false</code>). Consider using delegation, proxy, or <code>define_method</code> instead. If you must, use <code>method_missing</code>,</p>
+<p>Avoid using <code>method_missing</code> for metaprogramming. Backtraces become messy; the behavior is not listed in <code>#methods</code>; misspelled method calls might silently work (<code>nukes.launch_state = false</code>). Consider using delegation, proxy, or <code>define_method</code> instead. If you must, use <code>method_missing</code>,</p>
 
 <ul>
 <li>

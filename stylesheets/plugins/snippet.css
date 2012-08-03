@@ -187,6 +187,7 @@
 }
 /* line 136, stylesheets/sass/plugins/snippet.sass */
 .snippet-wrap pre.sh_sourceCode {
+  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier", monospace;
   line-height: 1.8em;
   overflow: auto;
   display: inline;
@@ -196,46 +197,50 @@
   width: 700px;
   border: 1px solid #dddddd;
 }
-/* line 142, stylesheets/sass/plugins/snippet.sass */
+/* line 144, stylesheets/sass/plugins/snippet.sass */
+.snippet-wrap pre li {
+  margin-bottom: 0;
+}
+/* line 148, stylesheets/sass/plugins/snippet.sass */
 .snippet-wrap pre.snippet-textonly {
   padding: 2em;
 }
 
-/* line 145, stylesheets/sass/plugins/snippet.sass */
+/* line 151, stylesheets/sass/plugins/snippet.sass */
 .snippet-reveal pre.sh_sourceCode {
   padding: 0.5em 1em;
   text-align: right;
 }
 
-/* line 150, stylesheets/sass/plugins/snippet.sass */
+/* line 156, stylesheets/sass/plugins/snippet.sass */
 .snippet-wrap .snippet-num li {
   padding-left: 1.5em;
 }
-/* line 152, stylesheets/sass/plugins/snippet.sass */
+/* line 158, stylesheets/sass/plugins/snippet.sass */
 .snippet-wrap .snippet-no-num {
   list-style: none;
   padding: 0.6em 1em;
   margin: 0;
 }
-/* line 156, stylesheets/sass/plugins/snippet.sass */
+/* line 162, stylesheets/sass/plugins/snippet.sass */
 .snippet-wrap .snippet-no-num li {
   list-style: none;
   padding-left: 0;
 }
-/* line 159, stylesheets/sass/plugins/snippet.sass */
+/* line 165, stylesheets/sass/plugins/snippet.sass */
 .snippet-wrap .snippet-num {
   padding: 0 1em;
 }
-/* line 161, stylesheets/sass/plugins/snippet.sass */
+/* line 167, stylesheets/sass/plugins/snippet.sass */
 .snippet-wrap .snippet-num li {
   list-style: decimal-leading-zero outside none;
 }
-/* line 163, stylesheets/sass/plugins/snippet.sass */
+/* line 169, stylesheets/sass/plugins/snippet.sass */
 .snippet-wrap .snippet-no-num li.box {
   padding: 0 6px;
   margin-left: -6px;
 }
-/* line 166, stylesheets/sass/plugins/snippet.sass */
+/* line 172, stylesheets/sass/plugins/snippet.sass */
 .snippet-wrap .snippet-num li.box {
   border: 1px solid;
   list-style-position: inside;
@@ -243,39 +248,39 @@
   padding-left: 6px;
 }
 
-/* line 173, stylesheets/sass/plugins/snippet.sass */
+/* line 179, stylesheets/sass/plugins/snippet.sass */
 *:first-child li.box, * html li.box {
   margin-left: -2.4em;
 }
 
-/* line 178, stylesheets/sass/plugins/snippet.sass */
+/* line 184, stylesheets/sass/plugins/snippet.sass */
 .snippet-wrap li.box-top {
   border-width: 1px 1px 0 !important;
 }
-/* line 180, stylesheets/sass/plugins/snippet.sass */
+/* line 186, stylesheets/sass/plugins/snippet.sass */
 .snippet-wrap li.box-bot {
   border-width: 0 1px 1px !important;
 }
-/* line 182, stylesheets/sass/plugins/snippet.sass */
+/* line 188, stylesheets/sass/plugins/snippet.sass */
 .snippet-wrap li.box-mid {
   border-width: 0 1px !important;
 }
-/* line 184, stylesheets/sass/plugins/snippet.sass */
+/* line 190, stylesheets/sass/plugins/snippet.sass */
 .snippet-wrap .snippet-num .box-sp {
   width: 18px;
   display: inline-block;
 }
 
-/* line 189, stylesheets/sass/plugins/snippet.sass */
+/* line 195, stylesheets/sass/plugins/snippet.sass */
 *:first-child .box-sp, * html .box-sp {
   width: 27px;
 }
 
-/* line 193, stylesheets/sass/plugins/snippet.sass */
+/* line 199, stylesheets/sass/plugins/snippet.sass */
 .snippet-wrap li.box {
   border: 1px solid;
 }
-/* line 195, stylesheets/sass/plugins/snippet.sass */
+/* line 201, stylesheets/sass/plugins/snippet.sass */
 .snippet-wrap li .box-sp {
   display: none;
 }
