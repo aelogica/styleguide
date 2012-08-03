@@ -16,7 +16,6 @@ A proper Doctype which triggers standards mode in your browser should always be 
 
       <!DOCTYPE html>
 
-
 ## HTML Guidelines
 
 *   Paragraphs of text should always be placed in a `<p>` tag. Never use multiple `<br/>` tags.
@@ -49,4 +48,6 @@ A proper Doctype which triggers standards mode in your browser should always be 
           </tbody>
         </table>
 
+* Specify image alt, title and dimensions. Always follow the image's true dimension as much as possible. If you need to resize, use an image processor like ImageMagick.
 
+        <img src="avatar.jpg" alt="My Avatar" title="This is my avatar" width="50" height="50" />
