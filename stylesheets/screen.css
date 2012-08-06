@@ -67,7 +67,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 1, sass/globals/_html_defaults.sass */
+/* line 1, stylesheets/sass/globals/_html_defaults.sass */
 body {
   font: 14px/20px "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: white;
@@ -75,17 +75,17 @@ body {
   line-height: 1.6;
 }
 
-/* line 7, sass/globals/_html_defaults.sass */
+/* line 7, stylesheets/sass/globals/_html_defaults.sass */
 a {
   color: #88aacc;
   text-decoration: none;
 }
-/* line 11, sass/globals/_html_defaults.sass */
+/* line 11, stylesheets/sass/globals/_html_defaults.sass */
 a:hover {
   color: #cccccc;
 }
 
-/* line 1, sass/shared/_layout.sass */
+/* line 1, stylesheets/sass/shared/_layout.sass */
 #container {
   margin-left: auto;
   margin-right: auto;
@@ -100,7 +100,7 @@ a:hover {
   clear: both;
 }
 
-/* line 1, sass/shared/_header.sass */
+/* line 1, stylesheets/sass/shared/_header.sass */
 header {
   display: inline;
   float: left;
@@ -112,12 +112,12 @@ header {
   margin-bottom: 30px;
 }
 
-/* line 1, sass/shared/_nav.sass */
+/* line 1, stylesheets/sass/shared/_nav.sass */
 nav {
   display: inline;
   float: right;
 }
-/* line 4, sass/shared/_nav.sass */
+/* line 4, stylesheets/sass/shared/_nav.sass */
 nav ul {
   *zoom: 1;
   margin: 0;
@@ -145,18 +145,18 @@ nav ul li {
   *display: inline;
   white-space: nowrap;
 }
-/* line 8, sass/shared/_nav.sass */
+/* line 8, stylesheets/sass/shared/_nav.sass */
 nav .menu-item {
   display: block;
   padding: 10px;
   color: #999999;
   font-weight: bold;
 }
-/* line 15, sass/shared/_nav.sass */
+/* line 15, stylesheets/sass/shared/_nav.sass */
 nav .menu-item:hover {
   color: #444444;
 }
-/* line 18, sass/shared/_nav.sass */
+/* line 18, stylesheets/sass/shared/_nav.sass */
 nav .menu-item.current {
   background: #eeeeee;
   color: #444444;
@@ -165,6 +165,20 @@ nav .menu-item.current {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
+}
+
+/* line 1, stylesheets/sass/shared/_footer.sass */
+footer {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 780px;
+  position: relative;
+  left: 160px;
+  border-top: 1px solid #efefef;
+  margin-top: 20px;
+  color: #bbbbbb;
 }
 
 /* line 1, stylesheets/sass/components/_markdown.sass */
@@ -228,13 +242,13 @@ nav .menu-item.current {
   border-radius: 0px;
 }
 
-/* line 1, sass/components/_sidebar.sass */
+/* line 1, stylesheets/sass/components/_sidebar.sass */
 .sidebar {
   position: fixed;
   top: 0;
 }
 
-/* line 1, sass/components/_table_of_contents.sass */
+/* line 1, stylesheets/sass/components/_table_of_contents.sass */
 .table-of-contents {
   display: inline;
   float: left;
@@ -246,22 +260,22 @@ nav .menu-item.current {
   margin-top: 30px;
   border-top: 1px solid #efefef;
 }
-/* line 9, sass/components/_table_of_contents.sass */
+/* line 9, stylesheets/sass/components/_table_of_contents.sass */
 .table-of-contents li {
   border-bottom: 1px solid #efefef;
 }
-/* line 12, sass/components/_table_of_contents.sass */
+/* line 12, stylesheets/sass/components/_table_of_contents.sass */
 .table-of-contents li .chapter {
   display: block;
   padding: 5px;
 }
-/* line 16, sass/components/_table_of_contents.sass */
+/* line 16, stylesheets/sass/components/_table_of_contents.sass */
 .table-of-contents li .chapter:hover {
   background: #88aacc;
   color: white;
 }
 
-/* line 1, sass/sections/_main_content.sass */
+/* line 1, stylesheets/sass/sections/_main_content.sass */
 #main-content {
   clear: both;
   margin-left: auto;
