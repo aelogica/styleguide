@@ -1,3 +1,3 @@
 base_url: corroded.github.com
-project_name: aelogica-styleguide
+project_name: styleguide
 exclude: ['*.haml', 'config.rb', 'Gemfile', 'Rakefile', 'VERSION', 'README.md']
