@@ -37,11 +37,11 @@ menu:
           {% for element in page.menu %}
           {% if element.name == page.name %}
           <li>
-            <a class='menu-item current' href='http://{{ site.base_url }}/{{ site.project_name }}/styleguide/{{ element.name }}'>{{ element.label }}</a>
+            <a class='menu-item current' href='http://{{ site.base_url }}/{{ site.project_name }}/{{ element.name }}'>{{ element.label }}</a>
           </li>
           {% else %}
           <li>
-            <a class='menu-item' href='http://{{ site.base_url }}/{{ site.project_name }}/styleguide/{{ element.name }}'>{{ element.label }}</a>
+            <a class='menu-item' href='http://{{ site.base_url }}/{{ site.project_name }}/{{ element.name }}'>{{ element.label }}</a>
           </li>
           {% endif %}
           {% endfor %}
