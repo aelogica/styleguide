@@ -24,6 +24,7 @@ task :pre_compile do
 end
 
 # TODO: Add an auto start for jekyll to compile
+desc 'Compile files, commit and deploy to gh-pages'
 task :deploy do
   # precompile for production
   Rake::Task["pre_compile"].execute
