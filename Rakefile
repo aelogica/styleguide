@@ -46,8 +46,8 @@ task :deploy do
   `touch .nojekyll`
 
   # git add + commit
-  `git add .`
-  `git commit`
+  system "git add ."
+  system "git commit"
 
   # delete the tmp folder from jekyll
   `rm -r ~/jekylltmp`
