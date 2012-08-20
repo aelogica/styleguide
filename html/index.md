@@ -4,7 +4,9 @@ name: html
 toc:
   - bookmark: introduction
   - bookmark: doctype
-  - bookmark: html_guidelines
+  - bookmark: semantics
+  - bookmark: forms
+  - bookmark: general
 ---
 
 ## Introduction
@@ -121,7 +123,7 @@ Most of these are taken from [Shay Howe's Building Forms post](http://learn.shay
           </tbody>
         </table>
 
-*   Specify image alt, title and dimensions. Always follow the image's true dimension as much as possible. If you need to resize, use an image processor like ImageMagick.
+*   Specify image `alt`, `title` and dimensions. Always follow the image's true dimension as much as possible. If you need to resize, use an image processor like ImageMagick.
 
         <img src="avatar.jpg" alt="My Avatar" title="This is my avatar" width="50" height="50" />
 
