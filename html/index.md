@@ -4,7 +4,9 @@ name: html
 toc:
   - bookmark: introduction
   - bookmark: doctype
-  - bookmark: html_guidelines
+  - bookmark: semantics
+  - bookmark: forms
+  - bookmark: general
 ---
 
 ## Introduction
