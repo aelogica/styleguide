@@ -78,7 +78,7 @@
         <div class='markdown'>
           <h2 id='introduction'>Introduction</h2>
 
-<p>Most, if not all, of the content here is taken from <a href='https://github.com/styleguide/html'>Github&#8217;s HTML Styleguide</a>. The idea is to make this document evolve over time as we follow this internally.</p>
+<p>Most, if not all, of the content here is taken from <a href='https://github.com/styleguide/html'>Github&#8217;s HTML Styleguide</a> and . The idea is to make this document evolve over time as we follow this internally.</p>
 
 <h2 id='doctype'>Doctype</h2>
 
@@ -86,9 +86,100 @@
 
 <pre><code>  &lt;!DOCTYPE html&gt;</code></pre>
 
-<h2 id='html_guidelines'>HTML Guidelines</h2>
+<h2 id='semantics'>Semantics</h2>
+
+<p><a href='http://learn.shayhowe.com/html-css/elements-semantics'>Shay Howe</a> and <a href='http://boagworld.com/dev/semantic-code-what-why-how/'>Paul Boag</a> both wrote great articles on this. No need to summarize even if the articles are a bit long.</p>
+
+<h2 id='forms'>Forms</h2>
+
+<p>Most of these are taken from <a href='http://learn.shayhowe.com/html-css/building-forms'>Shay Howe&#8217;s Building Forms post</a>. It has been summarized for easy reference.</p>
 
 <ul>
+<li>
+<p>When using labels, <strong>always</strong> use the <code>for</code> attribute. This allows the user to be able to click the label to focus on the form element it describes. The <code>for</code> attribute should have the same value as the <code>id</code> of the element it corresponds to.</p>
+
+<pre><code>&lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+&lt;input id=&quot;username&quot; name=&quot;user[name]&quot; type=&quot;text&quot; /&gt;</code></pre>
+</li>
+
+<li>
+<p>For checkboxes and radio buttons, you can put the input elements inside the labels so you don&#8217;t have to add <code>for</code> and <code>id</code> attributes on each:</p>
+
+<pre><code>&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;true&quot; value=&quot;1&quot; checked&gt; True&lt;/label&gt;
+&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;false&quot; value=&quot;0&quot; checked&gt; False&lt;/label&gt;</code></pre>
+</li>
+
+<li>
+<p>It is good practice to use <code>fieldset</code>s to group form controls and organized sections.</p>
+</li>
+
+<li>
+<p>There are many opinions on how to structure forms, but for now, we will follow the <code>fieldset</code> with unordered lists style.</p>
+
+<pre><code>&lt;fieldset&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+      &lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot; /&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
+      &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; /&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;actions&quot;&gt;
+      &lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/fieldset&gt;</code></pre>
+</li>
+</ul>
+
+<h2 id='general'>General</h2>
+
+<ul>
+<li>
+<p><strong>Never, ever use inline styles for whatever reason.</strong></p>
+</li>
+
+<li>
+<p>Don&#8217;t use <code>div</code>s too freely. Avoid &#8220;divitis&#8221; - a term used for using too many divs on a page so much that it is counterproductive. If you&#8217;re adding a div to your structure just for styling, then you are using it wrong.</p>
+
+<pre><code>&lt;!-- bad (minor mistake example) --&gt;
+&lt;div class=&quot;menu&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/about&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/contact&quot;&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- bad (extreme example) --&gt;
+&lt;div class=&quot;menu&quot;&gt;
+  &lt;div&gt;
+    &lt;div&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;a href=&quot;/about&quot;&gt;About&lt;/a&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;a href=&quot;/contact&quot;&gt;Contact Us&lt;/a&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- good --&gt;
+&lt;ul class=&quot;menu&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/about&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/contact&quot;&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</li>
+
+<li>
+<p>Use practical and semantic CSS classes when handcrafting HTML. <strong>Never</strong> use colors as class names (or even <code>id</code>s). Find a better name for the element to be styled.</p>
+
+<pre><code>&lt;!-- bad --&gt;
+&lt;span class=&quot;red&quot;&gt;There was a problem with your form.&lt;/span&gt;
+
+&lt;!-- good --&gt;
+&lt;span class=&quot;error&quot;&gt;There was a problem with your form.&lt;/span&gt;</code></pre>
+</li>
+
 <li>
 <p>Paragraphs of text should always be placed in a <code>&lt;p&gt;</code> tag. Never use multiple <code>&lt;br/&gt;</code> tags.</p>
 </li>
@@ -135,7 +226,13 @@
 <li>
 <p>Specify image alt, title and dimensions. Always follow the image&#8217;s true dimension as much as possible. If you need to resize, use an image processor like ImageMagick.</p>
 
-<pre><code>  &lt;img src=&quot;avatar.jpg&quot; alt=&quot;My Avatar&quot; title=&quot;This is my avatar&quot; width=&quot;50&quot; height=&quot;50&quot; /&gt;</code></pre>
+<pre><code>&lt;img src=&quot;avatar.jpg&quot; alt=&quot;My Avatar&quot; title=&quot;This is my avatar&quot; width=&quot;50&quot; height=&quot;50&quot; /&gt;</code></pre>
+</li>
+
+<li>
+<p>On a similar note, provide <code>title</code> tags to links that describe where that link is going.</p>
+
+<pre><code>&lt;a href=&quot;https://github.com/aelogica&quot; title=&quot;Aelogica&#39;s Github Account&quot;&gt;Aelogica&#39;s Github Account&lt;/a&gt; </code></pre>
 </li>
 </ul>
         </div>
